@@ -35,10 +35,10 @@ li {
 	font-size: 36px;
 	/*醒目而简约*/
 	border: 10px solid transparent;/*无此代码可能无边框*/
-	border-image: url(../images/ftbg.gif) 50 50 stretch;/*边框效果可能并不美观*/
-	-moz-border-image: url(../images/ftbg.gif) 50 50 stretch; /* 老版本的 Firefox */
--o-border-image: url(../images/ftbg.gif) 50 50 stretch; /* Opera */
-	-webkit-border-image: url(../images/ftbg.gif) 50 50 stretch; /* Safari */
+	border-image: url(ftbg.gif) 50 50 stretch;/*边框效果可能并不美观*/
+	-moz-border-image: url(ftbg.gif) 50 50 stretch; /* 老版本的 Firefox */
+-o-border-image: url(ftbg.gif) 50 50 stretch; /* Opera */
+	-webkit-border-image: url(ftbg.gif) 50 50 stretch; /* Safari */
 
 }
 
