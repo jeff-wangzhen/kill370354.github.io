@@ -95,7 +95,7 @@
 	</head>
 
 	<body>
-		<div id="background"><img id="img" src="images/1.jpg" /></div>
+		<div id="background"><img id="img" src="1.jpg" /></div>
 		<span id="show"></span>
 		<div class="chinese">欢迎访问我的
 			<a href="index2.html">个人主页</a>
@@ -119,11 +119,11 @@
 			//时间间隔(单位毫秒)，每3秒钟显示一张，数组共有2张图片放在images文件夹下，这两张图片均取自w.qq.com，虽然分辨率高，占用空间却很小，这种技术日后一定要学
 			var timeInterval = 1000; //启动1秒定时 
 			var arr = new Array();
-			arr[0] = "images/1.jpg";
-			arr[1] = "images/1.jpg";
-			arr[2] = "images/1.jpg";
-			arr[3] = "images/2.jpg";
-			arr[4] = "images/2.jpg";
+			arr[0] = "1.jpg";
+			arr[1] = "1.jpg";
+			arr[2] = "1.jpg";
+			arr[3] = "2.jpg";
+			arr[4] = "2.jpg";
 			setInterval(changeImg, timeInterval);
 
 			function changeImg() {
@@ -147,7 +147,7 @@
 			//alert(window.innerHeight);//均取浏览器内屏幕高度，含滚动条不含状态栏
 			var s = " ";
 			for(i = 1; i <= 16; i++) {
-				s = s + '  <div id="i' + i + '" style="z-index:1;width:100px;height:' + oMyHeight + '%;position:fixed;left:0px;top:0px;background-image: url(images/1.jpg); background-position:' + (i - 1) * 100 / 16 + '% 0%; background-repeat:no-repeat;  "></div>'; //原本想设置合适宽度的背景，使div集合与真实背景图片相融合，但是需要拉伸，且那样的话可能 看不出来div变化，所以如此而已
+				s = s + '  <div id="i' + i + '" style="z-index:1;width:100px;height:' + oMyHeight + '%;position:fixed;left:0px;top:0px;background-image: url(1.jpg); background-position:' + (i - 1) * 100 / 16 + '% 0%; background-repeat:no-repeat;  "></div>'; //原本想设置合适宽度的背景，使div集合与真实背景图片相融合，但是需要拉伸，且那样的话可能 看不出来div变化，所以如此而已
 			}
 			document.write(s);
 			var speed = 5;
