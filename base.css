@@ -1,0 +1,246 @@
+﻿@import"animate.css";
+html,
+body {
+	margin: 0 auto;
+	/*保证全部窗口覆盖*/
+	padding: 0 auto;
+	background-color: rgb(199, 237, 204);
+	/*这是网上流传的护眼色，珍爱眼睛，保护视力*/
+}
+
+.top {	
+	position: fixed;
+	z-index: 2;
+	/*参考许多网站，均有页首固定项，浮于页面之上，写2不写1是为了遮盖装饰图片出现的效果*/
+	display: inline-block;
+	width: 100%;
+	/*这是为了保证两边颜色能够扩展开*/
+	text-align: center;
+	background-color: #9fc;
+	/*为配合网页背景色而定*/
+}
+
+ul {
+	margin-left: -40px;/*浏览器默认有40px左偏移值，这是为了消除误差*/
+}
+
+li {
+	padding: 2px;
+	display: inline-block;
+	/*具体导航项目*/
+	width: 18%;
+	list-style-type: none;
+	font-family: 隶书, 楷体, 幼圆;
+	/*使大众电脑都有不错的字体效果*/
+	font-size: 36px;
+	/*醒目而简约*/
+	border: 10px solid transparent;/*无此代码可能无边框*/
+	border-image: url(../images/ftbg.gif) 50 50 stretch;/*边框效果可能并不美观*/
+	-moz-border-image: url(../images/ftbg.gif) 50 50 stretch; /* 老版本的 Firefox */
+-o-border-image: url(../images/ftbg.gif) 50 50 stretch; /* Opera */
+	-webkit-border-image: url(../images/ftbg.gif) 50 50 stretch; /* Safari */
+
+}
+
+li a {
+	text-decoration: none;
+	/*去除下划线*/
+}
+
+a:link {
+	color: rgb(63, 72, 44);
+	/*设置导航项字体颜色*/
+}
+
+a:visited {
+	color: rgb(170, 170, 170)/*设置访问过的导航项的字体颜色*/
+}
+
+a:hover {
+	color: rgb(255, 132, 0)/*设置鼠标在导航项上时的字体颜色*/
+}
+
+a:active {
+	color: rgb(0, 0, 0)/*设置鼠标点下导航项未弹上时的字体颜色*/
+}
+
+.container {
+	width: 1000px;
+	/*主页面宽度，参考新浪、腾讯网而设定*/
+	margin: 0 auto;
+	/*这是为了保证主页面居中*/
+	padding-top: 100px;
+	/*为了防止被导航项覆盖，设置上边距*/
+}
+
+.banner {
+	font-size: 72px;
+	/*设置字体大小*/
+	text-align: center;
+	/*设置文字居中*/
+	color: #0F0;
+	/*设置字体颜色*/
+	padding-top: 70px;
+	padding-bottom: 10%;
+	/*使与下面文字部分分离开*/
+}
+
+div .myname {
+	font-family: 微软雅黑, 幼圆, 隶书, 楷体;
+	/*设置名字字体，多设置几种保证特殊效果*/
+	dispaly: inline-block;
+	letter-spacing: 13px;
+	text-align: center;
+}
+
+div .htmlname {
+	font-family: 幼圆, 微软雅黑, 楷体, 隶书;
+	/*设置个人主页字体，多设置几种保证特殊效果*/
+	dispaly: inline-block;
+	letter-spacing: 10px;
+}
+
+.decoration {
+	position: absolute;
+	/*这是剑的效果，设置定位*/
+	left: 50%;
+	margin-left: 350px;
+	top: 100px;
+	z-index: 1;
+}
+
+.up {
+	/*这是书签跳转到页首*/
+	position: fixed;
+	/*定位*/
+	right: 0px;
+	bottom: 80px;
+	z-index: 1;
+	cursor: pointer;
+}
+
+#code1 {
+	/*这是小二维码，定位*/
+	z-index: 1;
+	position: fixed;
+	/*固定在浏览器靠底部的右边，这样电脑分辨率小也能都能看到*/
+	right: 0px;
+	bottom: 30px;
+	width: 50px;
+	/*设置宽高*/
+	height: 50px;
+	cursor: pointer;
+	/*鼠标特殊手型*/
+}
+
+#code1 img {
+	/*原本想裁剪图片，但是本来就很小，于是便直接固定宽度*/
+	width: 50px;
+}
+
+#code2 {
+	/*这是大的二维码*/
+	display: none;
+	/*默认不显示*/
+	z-index: 1;
+	/*z轴*/
+	position: fixed;
+	/*固定位置*/
+	right: 50px;
+	bottom: 30px;
+}
+
+.foot {
+	/*脚注部分*/
+	text-align: center;
+	/*文字居中*/
+	background-color: #9fc;
+	/*背景色与页首同*/
+	font-size: 16px;
+	text-decoration: none;
+	/*去掉特殊文字装饰*/
+}
+
+.top,
+.banner,
+.decoration,
+.up,
+#code1,
+.foot {
+	visibility: hidden;
+}
+/*这些都要添加动画效果，起初设为不可见*/
+
+
+/*下列为CSS3动画效果，来自http://www.qq.com/chrometips/house.htm*/
+
+.flipInXCode {
+	-webkit-animation: flipInX 1s 0s ease-in 1 both;
+	animation: flipInX 1s 0s ease-in 1 both;
+}
+
+.flipOutXCode {
+	-webkit-animation: flipOutX 1s 0s ease-in 1 both;
+	animation: flipOutX 1s 0s ease-in 1 both;
+}
+
+.leftIn {
+	-webkit-animation: fadeInLeft 1s 0s ease-in 1 both;
+	animation: fadeInLeft 1s 0s ease-in 1 both;
+}
+
+.rightIn {
+	-webkit-animation: fadeInRight 1s 0s ease-in 1 both;
+	animation: fadeInRight 1s 0s ease-in 1 both;
+}
+
+.leftInbounce {
+	-webkit-animation: bounceInLeft 1s 0s ease-in 1 both;
+	animation: bounceInLeft 1s 0s ease-in 1 both;
+}
+
+.rightInbounce {
+	-webkit-animation: bounceInRight 1.5s 0s ease-in 1 both;
+	animation: bounceInRight 1.5s 0s ease-in 1 both;
+}
+
+.upIn {
+	-webkit-animation: fadeInUp 1s 0s ease-in 1 both;
+	animation: fadeInUp 1s 0s ease-in 1 both;
+}
+
+.downIn {
+	-webkit-animation: fadeInDown 1s 0s ease-in 1 both;
+	animation: fadeInDown 1s 0s ease-in 1 both;
+}
+
+.tada {
+	-webkit-animation: tada 1s 0s ease-in 3 both;
+	animation: tada 1s 0s ease-in 3 both;
+}
+
+.pulseIn {
+	-webkit-animation: rotateIn 2s 0s ease-in 1 both;
+	animation: rotateIn 2s 0s ease-in 1 both;
+}
+
+
+.avatar1 {
+	-webkit-animation: rotateInDownLeft 2s 0s ease-in 1 both;
+	animation: rotateInDownLeft 2s 0s ease-in 1 both;
+}
+
+.avatar2 {
+	-webkit-animation: rotateInDownRight 2s 0s ease-in 1 both;
+	animation: rotateInDownRight 2s 0s ease-in 1 both;
+}
+
+.avatar3 {
+	-webkit-animation: rotateInUpLeft 2s 0s ease-in 1 both;
+	animation: rotateInUpLeft 2s 0s ease-in 1 both;
+}
+
+.avatar4 {
+	-webkit-animation: rotateInUpRight 2s 0s ease-in 1 both;
+	animation: rotateInUpRight 2s 0s ease-in 1 both;
+}
