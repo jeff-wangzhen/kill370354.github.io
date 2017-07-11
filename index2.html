@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="author" content="王振" />
+		<meta name="generator" content="Adobe DreamWeaver CC 2017,Hbuilder" />
+		<meta name="keywords" content="HTML, CSS, 个人网页,学生,初级" />
+		<meta name="description" content="这是一所普通高等学校计算机科学与技术专业一年级学生的个人网页，欢迎访问！限于作者水平，可能不能够实现养眼效果，敬请见谅！" />
+		<meta http-equiv="pragma" content="no-cache">
+		<meta http-equiv="cache-control" content="no-cache">
+		<meta http-equiv="expires" content="0">
+		<title>王振的个人主页</title>
+		<link rel="stylesheet" type="text/css" href="style/base.css" />
+		<style>
+			.pic {
+				visibility: hidden;
+			}
+			
+			.pic img {
+				display: inline;
+				float: left;
+				-webkit-border-radius: 50px;
+				/*设置照片圆角边框，并兼容不同浏览器*/
+				-moz-border-radius: 50px;
+				border-radius: 50px;
+			}
+			
+			.placeholder {
+				width: 100px;
+				height: 275px;
+				display: inline;
+				float: left;
+			}
+			
+			.information {
+				/*设置个人信息div的样式*/
+				width: 100px;
+				height: 275px;
+				float: left;
+			}
+			
+			table {
+				visibility: hidden;
+				font-family: 宋体;
+			}
+			
+			.left {
+				text-align: center;
+				letter-spacing: 18px;
+				/*使表格文字美观、大方*/
+			}
+			
+			.video {
+				text-align: center;
+				margin: 0 auto;
+				height: 500px;
+				/*考虑到下方的遮挡效果，且网页加载可能有差异，所以设定视频高度*/
+				overflow: visible;
+				/*可通过换行消除误差，但视频下的文字不能被隐藏*/
+				visibility: hidden;
+			}
+			
+			form {
+				padding-top: 5%;
+			}
+			
+			fieldset {
+				font-size: 24px;
+				font-family: 方正楷体, 华文楷体, 楷体;
+				margin-bottom: 20px;
+				/*使介绍文字美观、大方*/
+			}
+			
+			legend {
+				font-family: 华文彩云, 华文行楷, 楷体;
+				/*突出个人自述*/
+				font-size: 1em;
+			}
+			
+			span {
+				float: left;
+				/* 设置span标签的字为浮动，让其占据多行的空间 */
+				font-weight: bold;
+				/* 加粗span标签的字 */
+				font-size: 2em;
+				/* 设置span里的字为其他字体的2倍 */
+			}
+			
+			.grzs p:nth-child(n+3) {
+				text-indent: 2em;
+				/*设置段落第一个字空出两个字符*/
+			}
+			
+			.zhyh {
+				font-family: 华文行楷;
+				/*设置最后一行的字体，以便突出*/
+			}
+			
+			.qd {
+				font-family: 隶书;
+				/*设置个人自述部分最后几个字的字体*/
+				font-size: 1em;
+				float: none;
+			}
+		</style>
+		<script language="javascript" type="text/javascript" src="js/jquery-min.js"></script>
+		<!--引用JQ代码，防止JS无效 -->
+	</head>
+
+	<body>
+		<!--导航项 开始-->
+		<div class="top">
+			<div class="nav" id="nav">
+				<ul class="navigation">
+					<li>
+						<a href="">基本信息</a>
+					</li>
+					<li>
+						<a href="wuxia.html" target="_blank">兴趣武侠</a>
+					</li>
+					<li>
+						<a href="touch.html" target="_blank">联系方式</a>
+					</li>
+				</ul>
+			</div>
+			<!--导航项可以拖动位置-->
+		</div>
+		<!--导航部分结束-->
+		<div class="container">
+			<!--制作主体部分-->
+			<!--制作banner部分-->
+			<div class="banner">
+				<div class="myname">王振</div>
+				<div class="htmlname">的个人主页</div>
+			</div>
+			<div class="placeholder"></div>
+			<!--调整内容位置，以使中间不至留大片空白-->
+			<div class="pic"><img src="images/myself.jpg" width="200" height="282" alt="王振" title="王振"> </div>
+			<!--制作照片部分-->
+			<div>
+				<div class="information"></div>
+				<!--调整内容位置，以使中间不至留大片空白-->
+				<table cellpadding="16px" cellspacing="6px">
+					<!--用表格说明个人信息
+					以下内容使用了行内样式，是因为我觉得没有必要分离，毕竟只有那一个地方才会用到对应样式，分离出来反而不好找
+					-->
+					<tr>
+						<td scope="col" class="left">姓名</td>
+						<td style="letter-spacing:16px;">王振</td>
+					</tr>
+					<tr>
+						<td scope="col" class="left"> 性别</td>
+						<td>男</td>
+					</tr>
+					<tr>
+						<td class="left" scope="col"> 生日</td>
+						<td>1997-09-12</td>
+					</tr>
+					<tr>
+						<td scope="col"> 出生地</td>
+						<td>江西省&nbsp;&nbsp;上饶市&nbsp;&nbsp;上饶县</td>
+					</tr>
+					<tr>
+						<td scope="col">现居地</td>
+						<td>重庆市&nbsp;&nbsp;沙坪坝区&nbsp;&nbsp;虎溪镇</td>
+					</tr>
+				</table>
+				<!--表格结束-->
+			</div>
+
+			<br/><br/>
+			<!--我在大学报名时录制的视频-->
+			<div class="video">
+				<!--使视频居中显示-->
+				<iframe height="498px" width="510px" src="http://player.youku.com/embed/XMTg3OTE1NTQ0NA==" frameborder="0" allowfullscreen></iframe>
+				<br/> 这是我在大学报名时录制的视频 </div>
+			<br/><br/>
+			<!--增加br是为了消除误差-->
+			<div class="grzs">
+				<form>
+					<fieldset>
+						<!--这是从网上找的属性，为了实现边框中加文字的效果-->
+						<!--个人自述开始-->
+						<legend>个人自述</legend>
+						<p> <span style="word-spacing:30px">我</span>出生于江西省上饶县，自从初中开始，我的成绩就不怎么好。初中时，在老师们的熏陶下，感觉到似乎只有上重点中学才能实现十几年的大学梦想，可惜我成绩不佳不能被县里的重点中学录取。所以，我一直倾慕重点中学的同学，在我眼中，他们都是人才，我又何德何能，岂能追及！</p>
+						<p>后来我还是和他们一起参加高考，但是，成绩仍旧不能满足升学的愿望。于是只好去复读了。</p>
+						<p> 现我考进了一所大学，受着高等教育，终于体会到了幼时梦想的地方的现实版本，身边也有一些从重点中学来的人。通过与他们的交往，我感觉到，所谓的重点中学，并不是那么高不可攀。</p>
+						<p>不管怎样，人之生于世，不能总是仰望别人的高度，生命是自己的，要为自己活着，为自己努力。</p>
+						<p></p>
+						<p class="zhyh">一个坚强的人，无论身处何时何地，都不会因外界环境而改变自己的<span class="qd">意志与操守</span>。</p>
+					</fieldset>
+				</form>
+			</div>
+			<!--个人自述结束-->
+			<div class="foot">重庆师范大学计算机与信息科学学院16计科王振制作，版权所有。</div>
+			<!--脚注部分-->
+			<div class="decoration"> <img src="images/hnbc.png" width="133" height="600"></div>
+			<!--装饰图片-->
+			<div class="up">
+				<img src="images/top.png" width="50" height="50"> </div>
+			<!--向上箭头-->
+			<div id="code1" class="code"> <img src="images/code.png" title="扫一扫，用手机看" alt="扫一扫，用手机看" width="50" height="50"> </div>
+			<!--小二维码-->
+			<div id="code2"> <img src="images/code.png" title="扫一扫，用手机看" alt="扫一扫，用手机看" width="280" height="280"> </div>
+			<!--大二维码-->
+		</div>
+		<script type="text/javascript" src="js/base.js">
+		</script>
+		<!--引用外部js代码，也就是箭头和二维码部分-->
+		<!--导航条拖拽排序-->
+		<script>
+			(function($) {
+				$(document).ready(function() {
+					setTimeout(function() {
+						$(".pic").css("visibility", "visible");
+						$(".pic").addClass("leftIn").show();
+						$(" .video").css("visibility", "visible");
+						$(".video").addClass("pulseIn").show();
+					}, 2500);
+				});
+			})(jQuery); //照片从左进入
+
+			//function barrier(){
+			//以下创建个人信息遮挡块
+			var oTable = document.getElementsByTagName("table")[0]; //获取表格
+			var oTableTr = document.getElementsByTagName("tr")[0]; //获取表格的行
+			var oTableCellSpacing = oTable.cellSpacing; //获取表格的行距
+			var oTableTrWidth = oTableTr.offsetWidth; //获取表格宽度
+			var oTableTrHeight = oTableTr.offsetHeight + 3; //获取表格高度并修正误差
+			var oTableTrLeft = $("tr").offset().left; //获取表格左方偏移值
+			var oTableTrTop = $("tr").offset().top; //获取表格下方偏移值
+			var oTableTrTop2 = oTableTrTop + oTableTrHeight + parseInt(oTableCellSpacing.substring(0, 1), 10);
+			var oTableTrTop3 = oTableTrTop + oTableTrHeight * 2 + parseInt(oTableCellSpacing.substring(0, 1), 10);
+			var oTableTrTop4 = oTableTrTop + oTableTrHeight * 3 + parseInt(oTableCellSpacing.substring(0, 1), 10);
+			var oTableTrTop5 = oTableTrTop + oTableTrHeight * 4 + parseInt(oTableCellSpacing.substring(0, 1), 10);
+			var a = new Date(); //创建时间，这是为了使定时器按预定时间执行，而不是从一开始就执行
+			//以下创建遮挡块，创建过程浪费了大量时间。因为没搞懂定位关系，比如显示器分辨率的差异（起初固定px设定，只是套用body一半宽度，未使用表格偏移值，不同显示器可能有差异，幸好在照片右侧有一段空白区域可以消除误差），窗口缩放的影响，以及消失时间难以控制
+			document.write('<div  id="i1"  style="width:' + oTableTrWidth + 'px;height:' + oTableTrHeight + 'px;position:absolute;left:' + oTableTrLeft + 'px;top:' + oTableTrTop + 'px;background-color: rgb(199, 237, 204);"></div>');
+			document.write('<div id="i2"  style="width:' + oTableTrWidth + 'px;height:' + oTableTrHeight + 'px;position:absolute;left:' + oTableTrLeft + 'px;top:' + oTableTrTop2 + 'px;background-color: rgb(199, 237, 204);"></div>');
+			document.write('<div id="i3"  style="width:' + oTableTrWidth + 'px;height:' + oTableTrHeight + 'px;position:absolute;left:' + oTableTrLeft + 'px;top:' + oTableTrTop3 + 'px;background-color: rgb(199, 237, 204);"></div>');
+			document.write('<div id="i4"  style="width:' + oTableTrWidth + 'px;height:' + oTableTrHeight + 'px;position:absolute;left:' + oTableTrLeft + 'px;top:' + oTableTrTop4 + 'px;background-color: rgb(199, 237, 204);"></div>');
+			document.write('<div id="i5"  style="width:' + oTableTrWidth + 'px;height:' + oTableTrHeight + 'px;position:absolute;left:' + oTableTrLeft + 'px;top:' + oTableTrTop5 + 'px;background-color: rgb(199, 237, 204);"></div>');
+			var length1 = 0,
+				length2 = 0,
+				length3 = 0,
+				length4 = 0,
+				length5 = 0; //预备定时器中裁剪遮挡块，设置长度变量
+			var oTableTr1 = document.getElementById("i1"); //取出遮挡块
+			var oTableTr2 = document.getElementById("i2");
+			var oTableTr3 = document.getElementById("i3");
+			var oTableTr4 = document.getElementById("i4");
+			var oTableTr5 = document.getElementById("i5");
+			var i = 0;
+
+			//alert(oTableTr1.clientWidth);
+			//以下是个人信息栏遮挡块的消失效果
+			var interval1 = setInterval(function() { //第一个遮挡块的消失效果
+
+				var b = new Date();
+				if((b - a) > 4000) {
+					oTableTr1.style.clip = "rect(auto,auto,auto," + length1 + "px)";
+					length1++;
+				}
+			}, 10);
+			var interval2 = setInterval(function() { //第二个遮挡块的消失效果
+				var b = new Date();
+				if((b - a) > 5900) {
+					oTableTr2.style.clip = "rect(auto,auto,auto," + length2 + "px)";
+					length2++;
+				}
+			}, 10);
+			var interval3 = setInterval(function() { //第三个遮挡块的消失效果
+				var b = new Date();
+				if((b - a) > 7200) {
+					oTableTr3.style.clip = "rect(auto,auto,auto," + length3 + "px)";
+					length3++;
+				}
+			}, 10);
+			var interval4 = setInterval(function() { //第四个遮挡块的消失效果
+				var b = new Date();
+				if((b - a) > 9500) {
+					oTableTr4.style.clip = "rect(auto,auto,auto," + length4 + "px)";
+					length4++;
+				}
+			}, 10);
+			var interval5 = setInterval(function() { //第五个遮挡块的消失效果
+				var b = new Date();
+				if((b - a) > 12500) {
+					oTableTr5.style.clip = "rect(auto,auto,auto," + length5 + "px)";
+					length5++;
+				}
+			}, 10);
+			setTimeout(function() {
+				var oTable = document.getElementsByTagName("table")[0];
+				oTable.style.visibility = 'visible';
+			}, 2000); //设置个人信息出现，因为可能加载时会先闪现出文字，再被覆盖，但是实际测试可能仍然如此，实非能力所及
+			setTimeout(function() {
+				window.clearInterval(interval1);
+				window.clearInterval(interval2);
+				window.clearInterval(interval3);
+				window.clearInterval(interval4);
+				window.clearInterval(interval5);
+			}, 18000); //定时器效果播放完毕之后取消，否则一直占用内存
+
+			/*最后效果粗测尚可，但是仍有漏洞，比如窗口缩放的影响，本想将以上均放入barrier()函数中，然后通过
+			window.onload=function(){barrier();};
+			window.onresize=function(){barrier();};
+			调用，但是函数调用时会擦除页面已经加载的内容，所以没有成功
+			*/
+			//同上，覆盖个人自述内容。这次只设置一个大挡板，不再分行。
+			var oTextField = document.getElementsByClassName("grzs")[0];
+			//var oBody = document.getElementsByTagName("body")[0];
+			var oTextFieldWidth = oTextField.offsetWidth; //获取文本区域宽度
+			var oTextFieldHeight = oTextField.offsetHeight - 40; //获取文本区域高度，因为上部有空白区域会占据时间，所以减掉40px
+			//var oBodyHeight = oBody.clientHeight; //获取文本区域高度
+			var oTextFieldLeft = $(".grzs").offset().left; //获取文本区域水平偏移值
+			var oTextFieldTop = $(".grzs").offset().top + 40; //oBodyHeight - oTextFieldHeight - 30;  获取文本区域相对文档左上角偏移值，并修正40px（因为div内的上部有空白，恐怕会占用时间）;原本测试了 本地成功，上传不行。发现网页加载时视频后加载，致使系统误判body高度，所以在style中增加视频div高度固定值，测试成功
+			//alert(oTextFieldTop);
+			document.write('<div  id="i6"  style="width:' + oTextFieldWidth + 'px;height:' + oTextFieldHeight + 'px;position:absolute;left:' + oTextFieldLeft + 'px;top:' + oTextFieldTop + 'px;background-color: rgb(199, 237, 204);"></div>');
+			var length6 = 0;
+			var oTextArea = document.getElementById("i6");
+			var interval6 = setInterval(function() { //第一个遮挡块的消失效果
+				if(oTextFieldHeight / 5 + oTextFieldTop <= ($(window).scrollTop() + $(window).height())) {
+					oTextArea.style.clip = "rect(" + length6 + "px,auto,auto,auto)";
+					length6++;
+					if(length6 > oTextFieldHeight) clearInterval(interval6); //设置关闭定时器，因为不能根据时间或者clip的top判断，所以设置length6>oTextFieldHeight的判断条件，最佳
+				}
+			}, 20);
+		</script>
+	</body>
+
+</html>

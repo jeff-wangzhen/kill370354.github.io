@@ -1,0 +1,199 @@
+<!doctype html>
+<!--排版一事，恕我缺少审美想法，实在没有其他想法-->
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="author" content="王振" />
+		<meta name="generator" content="Adobe DreamWeaver CC 2017,Hbuilder" />
+		<meta name="keywords" content="HTML, CSS, 个人网页,学生,初级" />
+		<meta name="description" content="这是一所普通高等学校计算机科学与技术专业一年级学生的个人网页，欢迎访问！限于作者水平，可能不能够实现养眼效果，敬请见谅！" />
+		<title>欢迎访问</title>
+		<style>
+			html,
+			body {
+				margin: 0 auto;
+			}
+			/*适应不同分辨率的屏幕*/
+			
+			span {
+				/*倒计时文字，位于左上角*/
+				position: fixed;
+				margin: 10px;
+			}
+			/*显示倒计时的位置*/
+			
+			div#background {
+				/*设定放置背景图片的div，之所以不放在body里面，是为了使得背景图片能够拉伸，而如果在body中不能够实现*/
+				position: absolute;
+				/*设定放置背景图片的div位置属性*/
+				top: 0;
+				left: 0;
+				bottom: 0;
+				right: 0;
+				z-index: -1;
+				/*这是为了有背景效果*/
+			}
+			
+			div#background img {
+				display: block;
+				position: absolute;
+				/*设定背景图片位置属性*/
+				width: 100%;
+				/*设定背景图片*/
+				height: 100%;
+				top: 0;
+				/*设定背景图片位置属性*/
+				left: 0;
+			}
+			
+			.chinese {
+				/*欢迎文字*/
+				position: absolute;
+				height: 40px;
+				width: 400px;
+				color: #000;
+				font-family: "华文行楷", "隶书", "楷体";
+				/*设置中文字体，防止在各种电脑上不能正常显示，多设置几个字体*/
+				font-size: 2em;
+				text-align: center;
+				overflow: visible;
+				text-shadow: 1px 1px 1px #111, 1px 1px 1px #222, 1px 1px 1px #333;
+				/*文字阴影效果*/
+			}
+			
+			.english {
+				/*欢迎文字*/
+				position: absolute;
+				font-family: "Times New Roman", Times, serif;
+				/*设置英文字体*/
+				font-size: 2em;
+				text-align: center;
+				margin: 0 auto;
+				/*使英文单词居中*/
+				height: 40px;
+				width: 200px;
+				overflow: visible;
+			}
+			
+			a:link {
+				color: rgb(0, 153, 0);
+			}
+			
+			a:visited {
+				color: rgb(82, 124, 106);
+			}
+			
+			a:hover {
+				color: rgb(255, 132, 0);
+			}
+			
+			a:active {
+				color: rgb(0, 0, 0);
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="background"><img id="img" src="images/1.jpg" /></div>
+		<span id="show"></span>
+		<div class="chinese">欢迎访问我的
+			<a href="index2.html">个人主页</a>
+		</div>
+		<!--欢迎文字-->
+		<div class="english"><b>WELCOME</b> </div>
+		<!--欢迎文字-->
+		<!--下列js代码是从网上复制的-->
+		<script type="text/javascript">
+			var t = 5; //设定页面自动跳转的时间 
+			setInterval("refer()", 1000); //启动1秒定时 
+			function refer() {
+				if(t == 0) {
+					location = "index2.html"; //#设定跳转的链接地址 
+				}
+				document.getElementById("show").innerHTML = t + "秒后自动跳转"; // 显示倒计时 
+				t--; // 计数器递减 
+			}
+
+			var curIndex = 0; //设定背景图片自动切换
+			//时间间隔(单位毫秒)，每3秒钟显示一张，数组共有2张图片放在images文件夹下，这两张图片均取自w.qq.com，虽然分辨率高，占用空间却很小，这种技术日后一定要学
+			var timeInterval = 1000; //启动1秒定时 
+			var arr = new Array();
+			arr[0] = "images/1.jpg";
+			arr[1] = "images/1.jpg";
+			arr[2] = "images/1.jpg";
+			arr[3] = "images/2.jpg";
+			arr[4] = "images/2.jpg";
+			setInterval(changeImg, timeInterval);
+
+			function changeImg() {
+				var img = document.getElementById("img");
+				if(curIndex == arr.length - 1) {
+					curIndex = 0;
+				} else {
+					curIndex += 1;
+				}
+				img.src = arr[curIndex];
+			}
+
+			var oMyHeight = document.body.clientHeight || window.innerHeight;
+			//alert(oMyHeight); //各浏览器均取前者，均支持document.body.clientHeight属性,IE 6、7、8显示undefined,IE5 有显示
+			//若要使在body过高时能够实现同时两边上下分离的效果，必须使用window.innerHeight
+			var oMyWidth = document.body.clientWidth ? document.body.clientWidth : window.innerWidth;
+			//alert(oMyWidth); 
+			//alert(document.body.clientWidth);//均是浏览器内屏幕宽度，不含滚动条1903
+			//alert(document.body.clientHeight);//均是body实际高度，不管是否满屏，不含滚动条
+			//alert(window.innerWidth);//均含滚动条1920
+			//alert(window.innerHeight);//均取浏览器内屏幕高度，含滚动条不含状态栏
+			var s = " ";
+			for(i = 1; i <= 16; i++) {
+				s = s + '  <div id="i' + i + '" style="z-index:1;width:100px;height:' + oMyHeight + '%;position:fixed;left:0px;top:0px;background-image: url(images/1.jpg); background-position:' + (i - 1) * 100 / 16 + '% 0%; background-repeat:no-repeat;  "></div>'; //原本想设置合适宽度的背景，使div集合与真实背景图片相融合，但是需要拉伸，且那样的话可能 看不出来div变化，所以如此而已
+			}
+			document.write(s);
+			var speed = 5;
+			var temp = new Array();
+			//以下创建屏幕中心文字，限于水平，为了居中花费了大量时间
+			var oWelcomeChinese = document.getElementsByClassName("chinese")[0];
+			var oWelcomeEnglish = document.getElementsByClassName("english")[0];
+			/*var oWelcomeChineseHeight=oWelcomeChinese.clientHeight;//此处不能够通过oWelcomeChinese.clientHeight 获取，不明白为什么，直接alert会出现40,但是不能赋值
+			——因为没有设置div宽高固定值啊！所以不能获取！若设置了则可以获取*/
+			oWelcomeChinese.style.top = (oMyHeight - oWelcomeChinese.clientHeight - oWelcomeEnglish.clientHeight) / 2 + "px";
+			oWelcomeChinese.style.left = (oMyWidth - oWelcomeChinese.clientWidth) / 2 + "px";
+			oWelcomeEnglish.style.top = parseInt(oWelcomeChinese.style.top, 10) + oWelcomeChinese.clientHeight + "px";
+			oWelcomeEnglish.style.left = parseInt(oWelcomeChinese.style.left, 10) + (oWelcomeChinese.clientWidth - oWelcomeEnglish.clientWidth) / 2 + "px";
+			//  alert(oWelcomeChinese.offsetTop);//295 number   自动取整？
+			//alert( oWelcomeEnglish.clientWidth);//200 number  自动取整？
+			//alert( oWelcomeChinese.style.top );//294.5px  string 注意单位！！！
+			//alert(oWelcomeEnglish.style.left);//offset只能获取不能设置，无论是oWelcomeEnglish还是oWelcomeChinese，总是左边比右边多2px，为什么不能再平均呢？
+			//我设置了oWelcomeEnglish.style.left =  (oMyWidth - oWelcomeEnglish.clientWidth)+"px"; 但是提示会有偏差，真奇怪，并且似乎与上面设置的div宽度有关，后来发现可能是.english类选择器未设置position：absolute;以及div宽高必须固定，浪费了大量调试时间
+			/*
+			上学期对欢迎文字的定位单单通过CSS样式设定margin和padding的百分比来设置，此次通过js定位，发现了不少问题，却无力解决
+			*/
+			var a = document.getElementsByTagName("body")[0];
+			//alert(a.clientHeight);
+
+			//alert(oMyHeight);
+			var oMyTop = 0;
+			for(i = 1; i <= 16; i++) {
+				temp[i] = document.getElementById("i" + i);
+				temp[i].style.width = oMyWidth / 16 + "px";
+				temp[i].style.height = oMyHeight + "px";
+				temp[i].style.left = (i - 1) * oMyWidth / 16 + "px";
+			}
+
+			function kind() {
+				oMyHeight -= speed;
+				for(i = 1; i <= 16; i = i + 2) {
+					temp[i].style.clip = "rect(auto,auto," + oMyHeight + "px," + "auto)";
+				}
+				oMyTop += speed;
+				for(i = 2; i <= 16; i = i + 2) {
+					temp[i].style.clip = "rect( " + oMyTop + "px" + ",auto,auto,auto)";
+				}
+				if(oMyHeight <= 0) clearInterval(time);
+			}
+			time = setInterval("kind()", 15); //div缓慢消失
+		</script>
+	</body>
+
+</html>
