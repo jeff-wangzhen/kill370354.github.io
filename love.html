@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>  <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,10 +25,19 @@
         }
 
         #myCanvas {
-            height: 100%;
+            width: 100%;
             display: block;
             /*background-color:aqua;*/
-        }
+        } #bs{
+              display: none;
+              position: absolute;
+              top: 100px;
+              left: 90px;
+              font-family: 华文行楷,幼圆,楷体;
+              font-style: italic;
+              font-size: 1rem;
+              color: black;
+          }
         @-webkit-keyframes bounceInLeft {
             from, 60%, 75%, 90%, to {
                 -webkit-animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
@@ -101,16 +111,7 @@
             animation-name: bounceInLeft;
         }
 
-        #bs{
-            display: none;
-            position: absolute;
-            top: 300px;
-            left: 450px;
-            font-family: 华文行楷,幼圆,楷体;
-            font-style: italic;
-            font-size: 100px;
-            color: black;
-        }
+
     </style>
     <script type="text/javascript">
         flag=1;
@@ -161,7 +162,7 @@
             else ctx.fill();
             if (i >= num) {show();
                 clearInterval(intervalId);
-              //  document.getElementById("bs").innerHTML = arr.join("");//打印所有的XY坐标点。
+                //  document.getElementById("bs").innerHTML = arr.join("");//打印所有的XY坐标点。
             }
         }
 
