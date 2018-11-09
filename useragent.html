@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<br/><div id="doc" ></div>
+<script>
+
+    doc=document.getElementById("doc");
+</script>
+<script type="text/javascript">
+    doc.innerHTML+=("<br/><br/>");
+    doc.innerHTML+=("<br/><br/>");
+    doc.innerHTML+=("<br/><br/>");
+    var iStartTime = (new Date()).getTime();
+    doc.innerHTML+=(iStartTime);
+    doc.innerHTML+=("<br/>");
+    doc.innerHTML+=(new Date());
+
+    function fnGetUserDevice(sUserAgent) {
+        if (sUserAgent.indexOf("HONOR".toLowerCase()) > -1 || sUserAgent.indexOf("HUAWEI".toLowerCase()) > -1)
+            return "华为";
+        if (sUserAgent.search(/MI(?!cro)/i) > -1)
+            return "小米";
+        if (sUserAgent.indexOf("SM-".toLowerCase()) > -1)
+            return "三星";
+        if (sUserAgent.search(/MX(?!B48T)/i) > -1)
+            return "魅族";
+        if (sUserAgent.indexOf("OPPO".toLowerCase()) > -1)
+            return "OPPO";
+        if (sUserAgent.indexOf("vivo".toLowerCase()) > -1)
+            return "vivo";
+        if (sUserAgent.search(/(YQ|OD|SM)\d{3}/i) > -1)
+            return "锤子坚果";
+        if (sUserAgent.indexOf("Coolpad".toLowerCase()) > -1)
+            return "酷派";
+        if (sUserAgent.indexOf("GIONEE".toLowerCase()) > -1)
+            return "金立";
+        if (sUserAgent.indexOf("iPhone".toLowerCase()) > -1)
+            return "iPhone ";
+        if (sUserAgent.indexOf("ipad".toLowerCase()) > -1)
+            return "iPad ";
+        if (sUserAgent.indexOf("Nokia".toLowerCase()) > -1)
+            return "诺基亚";
+        if (sUserAgent.search(/letv|Le {0,1}X|EUI/i) > -1)
+            return '乐视';
+        if (sUserAgent.indexOf("ZTE".toLowerCase()) > -1)
+            return "中兴";
+        if (sUserAgent.indexOf("Lenovo".toLowerCase()) > -1)
+            return "联想";
+        return "";
+    }
+
+    function detectOS(sUserAgent) {
+        var sUserDevice = fnGetUserDevice(sUserAgent);
+        if (sUserAgent.indexOf("ndroid".toLowerCase()) > -1 || sUserAgent.indexOf("ADR".toLowerCase()) > -1)
+            return sUserDevice + "安卓版";
+
+        if (sUserAgent.indexOf("Win".toLowerCase()) > -1) {
+            if (sUserAgent.indexOf("windows phone".toLowerCase()) > -1)
+                return sUserDevice + "WP系统";
+            if (sUserAgent.indexOf("NT 6.1".toLowerCase()) > -1)
+                return sUserDevice + "Win7系统";
+            if (sUserAgent.indexOf("NT 6.4".toLowerCase()) > -1 || sUserAgent.indexOf("NT 10.0".toLowerCase()) > -1)
+                return sUserDevice + "Win10系统";
+            if (sUserAgent.indexOf("NT 5.1|NT 5.2".toLowerCase()) > -1)
+                return sUserDevice + "WinXP系统";
+            if (sUserAgent.indexOf("NT 6.2".toLowerCase()) > -1)
+                return sUserDevice + "Win8系统";
+            if (sUserAgent.indexOf("NT 6.3".toLowerCase()) > -1)
+                return sUserDevice + "Win8.1系统";
+            if (sUserAgent.indexOf("NT 6.0".toLowerCase()) > -1)
+                return sUserDevice + "WinVista系统";
+            if (sUserAgent.indexOf("NT 5.0".toLowerCase()) > -1)
+                return sUserDevice + "Win2000系统";
+            if (sUserAgent.indexOf("NT 5.2".toLowerCase()) > -1)
+                return sUserDevice + "Win2003系统";
+            return sUserDevice + "Windows系统";
+        }
+        if (sUserAgent.indexOf("iPhone".toLowerCase()) > -1)
+            return sUserDevice + "iPhone版";
+        if (sUserAgent.indexOf("ipad".toLowerCase()) > -1)
+            return sUserDevice + "iPad版";
+        if (sUserAgent.indexOf("iOS".toLowerCase()) > -1)
+            return sUserDevice + "iOS版";
+        if (sUserAgent.indexOf("Symbian".toLowerCase()) > -1)
+            return sUserDevice + "塞班版";
+        if (sUserAgent.indexOf("mobile".toLowerCase()) > -1)
+            return sUserDevice + "手机版";
+        if (sUserAgent.indexOf("Mac".toLowerCase()) > -1)
+            return sUserDevice + "Mac系统";
+        if (sUserAgent.indexOf("Linux".toLowerCase()) > -1)
+            return sUserDevice + "Linux系统";
+        if (sUserAgent.indexOf("X11".toLowerCase()) > -1)
+            return sUserDevice + "Unix系统";
+        return sUserDevice;
+    }
+
+    function fnGetUserBrowser() {
+        sUserAgent = navigator.userAgent.toLowerCase();
+        if (sUserAgent == "")
+            return '';
+        var sOperatingSystem = detectOS(sUserAgent);
+        if (sUserAgent.indexOf("QQBrowser".toLowerCase()) > -1) {
+            if (sUserAgent.indexOf("QQ\/".toLowerCase()) > -1)
+                return sOperatingSystem + 'QQ客户端';
+            return sOperatingSystem + 'QQ';
+        }
+        if (sUserAgent.indexOf("2345Explorer".toLowerCase()) > -1)
+            return sOperatingSystem + '2345加速';
+        if (sUserAgent.indexOf("MetaSr".toLowerCase()) > -1)
+            return sOperatingSystem + '搜狗高速';
+        if (sUserAgent.indexOf("EUI".toLowerCase()) > -1)
+            return sOperatingSystem + '乐视';
+        if (sUserAgent.indexOf("LBBROWSER".toLowerCase()) > -1)
+            return sOperatingSystem + '猎豹';
+        if (sUserAgent.indexOf("Maxthon".toLowerCase()) > -1)
+            return sOperatingSystem + '傲游';
+        if (sUserAgent.indexOf("TheWorld".toLowerCase()) > -1)
+            return sOperatingSystem + '世界之窗';
+        if (sUserAgent.indexOf("MicroMessenger".toLowerCase()) > -1)
+            return sOperatingSystem + '微信';
+        if (sUserAgent.indexOf("weibo".toLowerCase()) > -1)
+            return sOperatingSystem + '微博';
+        if (sUserAgent.indexOf("IDU".toLowerCase()) > -1)
+            return sOperatingSystem + '百度';
+        if (sUserAgent.indexOf("AliApp".toLowerCase()) > -1)
+            return sOperatingSystem + '阿里应用';
+        if (sUserAgent.search(/UC/i) > -1)
+            return sOperatingSystem + 'UC';
+        if (sUserAgent.indexOf("360SE".toLowerCase()) > -1)
+            return sOperatingSystem + '360安全';
+        if (sUserAgent.indexOf("360EE".toLowerCase()) > -1)
+            return sOperatingSystem + '360极速';
+        if (sUserAgent.indexOf("360") > -1)
+            return sOperatingSystem + '360';
+        if (sUserAgent.indexOf("Edge".toLowerCase()) > -1)
+            return sOperatingSystem + 'Edge';
+        if (sUserAgent.indexOf("Firefox".toLowerCase()) > -1)
+            return sOperatingSystem + 'Firefox';
+        if (sUserAgent.indexOf("OPR".toLowerCase()) > -1 || sUserAgent.indexOf("Opera".toLowerCase()) > -1)
+            return sOperatingSystem + 'Opera';
+        if (sUserAgent.indexOf("MSIE".toLowerCase()) > -1) {
+            if (sUserAgent.indexOf("rv:11") > -1)
+                return sOperatingSystem + 'IE11';
+            if (sUserAgent.indexOf("MSIE 10.0".toLowerCase()) > -1)
+                return sOperatingSystem + 'IE10';
+            if (sUserAgent.indexOf("MSIE 9.0".toLowerCase()) > -1)
+                return sOperatingSystem + 'IE9';
+            if (sUserAgent.indexOf("MSIE 8.0".toLowerCase()) > -1)
+                return sOperatingSystem + 'IE 8.0';
+            if (sUserAgent.indexOf("MSIE 7.0".toLowerCase()) > -1)
+                return sOperatingSystem + 'IE 7.0';
+            if (sUserAgent.indexOf("MSIE 6.0".toLowerCase()) > -1)
+                return sOperatingSystem + 'IE 6.0';
+            return sOperatingSystem + 'IE';
+        }
+        if (sUserAgent.indexOf("Chrome".toLowerCase()) > -1)
+            return sOperatingSystem + 'Chrome';
+        if (sUserAgent.indexOf("Safari".toLowerCase()) > -1)
+            return sOperatingSystem + 'Safari';
+        return sOperatingSystem;
+    }
+
+    var a = fnGetUserBrowser();
+    for (i in navigator) {
+        doc.innerHTML+=(i + "==" + navigator[i] + "<br/>");
+    }
+    doc.innerHTML+=(navigator.platform + "<br/>js判断浏览器：" + a);
+    var iEndTime = (new Date()).getTime();
+    doc.innerHTML+=("<br/>");
+    doc.innerHTML+=(iEndTime);
+    doc.innerHTML+=("<br/>");
+    doc.innerHTML+=((iEndTime - iStartTime) / 1000);
+    doc.innerHTML+=("<br/><br/>");
+    for (iu in screen) {
+        doc.innerHTML+=(iu + "==" + screen[iu] + "<br/>");
+    }
+</script>
+<br/>
+<br/>
+<script type="text/javascript" src="http://ip.chinaz.com/getip.aspx"></script>
+<script src="http://pv.sohu.com/cityjson?ie=utf-8"></script>
+<script src="http://int.dpool.sina.com.cn/iplookup/iplookup.php?format=js"></script>
+<script src="js/xhr.js"></script>
+<script src="js/jquery.js"></script>
+<script type="text/javascript">
+    doc.innerHTML+=(returnCitySN["cip"] + ' ' + remote_ip_info.country + ' ' + remote_ip_info.province + ' ' + remote_ip_info.city);
+    function fnXHRCompleted() {
+        // alert(oXMLHttpRequest.responseText);
+        console.log("欢迎访问本站！");
+    }
+    doc.innerHTML+=("<iframe id='taobaoip' src='http://ip.taobao.com/service/getIpInfo.php?ip=" + returnCitySN["cip"] + "'><\/iframe>");
+</script>
+</body>
+</html>
