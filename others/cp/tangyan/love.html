@@ -5,13 +5,15 @@
     <meta charset="UTF-8">
     <title>Draw Heart</title>
     <style type="text/css">
-        html{
+        html {
             margin: 0;
             padding: 0;
         }
-body{
-    margin-top: 20px;
-}
+
+        body {
+            margin-top: 20px;
+        }
+
         #canvasZone {
             width: 60%;
             text-align: center;
@@ -116,38 +118,49 @@ body{
         }
 
         .sender div:nth-of-type(2) {
-            background-color: aquamarine;
+            background-color: rgb(0,158,238);
             float: left;
             margin: 0 10px 10px 0px;
             padding: 0px 10px 10px 0px;
             border-radius: 7px;
         }
-        .sender div:nth-of-type(2) img{
-            margin-left: 5px ;
+
+        .sender div:nth-of-type(2) img {
+            margin-left: 5px;
         }
+
         .receiver div:first-child img,
         .sender div:first-child img {
             width: 50px;
             height: 50px;
         }
-        .sender  div>img{
+
+        .sender div > img {
             margin: 0 10px 0 0px;
         }
+
         .receiver div:nth-child(1) {
             float: right;
             clear: left;
         }
+
         .receiver div:nth-of-type(2) {
             float: right;
-            background-color: gold;
+            background: -webkit-linear-gradient(rgb(127,185,248), rgb(187,216,229)); /* Safari 5.1 - 6.0 */
+            background: -o-linear-gradient(rgb(127,185,248), rgb(187,216,229)); /* Opera 11.1 - 12.0 */
+            background: -moz-linear-gradient(rgb(127,185,248), rgb(187,216,229)); /* Firefox 3.6 - 15 */
+            background: linear-gradient(rgb(127,185,248), rgb(187,216,229)); /* 标准的语法 */
             margin: 0 10px 10px 20px;
             padding: 0px 0px 10px 10px;
             border-radius: 7px;
         }
 
-          .receiver >div.content >span >img{
+        .receiver > div.content > span > img {
             margin: 0 0px 0 -5px;
         }
+.portrait img{
+    border-radius:25px;
+}
         .left_triangle {
             height: 0px;
             width: 0px;
@@ -203,28 +216,31 @@ body{
             <div class="left_triangle"></div>
             <span><img width="100%" src="ss1.jpg" alt=""></span>
         </div>
-    </div>  <div class="sender">
-    <div class="portrait">
-        <img src="she.jpg" height="462" width="427"/></div>
-    <div class="content">
-        <div class="left_triangle"></div>
-        <span><img width="100%" src="ss2.jpg" alt=""></span>
     </div>
-</div>
+    <div class="sender">
+        <div class="portrait">
+            <img src="she.jpg" height="462" width="427"/></div>
+        <div class="content">
+            <div class="left_triangle"></div>
+            <span><img width="100%" src="ss2.jpg" alt=""></span>
+        </div>
+    </div>
     <div class="receiver">
-    <div class="portrait">
-        <img src="me.jpg" height="640" width="640"/></div>
-    <div class="content">
-        <div class="right_triangle"></div>
-        <span><img width="100%" src="ss3.jpg" alt=""></span>
+        <div class="portrait">
+            <img src="me.jpg" height="640" width="640"/></div>
+        <div class="content">
+            <div class="right_triangle"></div>
+            <span><img width="100%" src="ss3.jpg" alt=""></span>
+        </div>
     </div>
-</div> <div class="sender">
-    <div class="portrait">
-        <img src="she.jpg" height="462" width="427"/></div>
-    <div class="content">
-        <div class="left_triangle"></div><span><img width="100%" height="100%" src="shoushi.jpg" alt=""></span>
+    <div class="sender">
+        <div class="portrait">
+            <img src="she.jpg" height="462" width="427"/></div>
+        <div class="content">
+            <div class="left_triangle"></div>
+            <span><img width="100%" height="100%" src="shoushi.jpg" alt=""></span>
+        </div>
     </div>
-</div>
 </div>
 
 <script type="text/javascript">
@@ -308,13 +324,14 @@ body{
     portraitDiv = document.getElementsByClassName("portrait")[1];
     windowInnerWidth = window.innerWidth;
     windowInnerHeight = window.innerHeight;
-    maxWidth=windowInnerWidth - portraitDiv.offsetWidth - 60;
-    oCanvasContent.style.width = 230 > maxWidth ?  maxWidth+ "px" : "230px";
-    oContent= document.getElementsByClassName("content");
-    for(i=oContent.length-1;i>-1;i--){
+    maxWidth = windowInnerWidth - portraitDiv.offsetWidth - 60;
+    oCanvasContent.style.width = 230 > maxWidth ? maxWidth + "px" : "230px";
+    oContent = document.getElementsByClassName("content");
+    for (i = oContent.length - 1; i > -1; i--) {
         console.log(oContent[i].children);
-      //  if(oContent[i].children[1].children[0].tagName=="IMG"){ oContent[i].style.margin="0px";oContent[i].style.padding="0px";}
-        oContent[i].style.width = 230 > maxWidth ?  maxWidth+ "px" : "230px";}
+        //  if(oContent[i].children[1].children[0].tagName=="IMG"){ oContent[i].style.margin="0px";oContent[i].style.padding="0px";}
+        oContent[i].style.width = 230 > maxWidth ? maxWidth + "px" : "230px";
+    }
 </script>
 </body>
 </html>
