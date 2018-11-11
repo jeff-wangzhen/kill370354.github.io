@@ -1,337 +1,61 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
-    <title>love</title>
-    <style type="text/css">
-        html {
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            margin-top: 20px;
-        }
-
-        #canvasZone {
-            width: 60%;
-            text-align: center;
-        }
-
-        span > div {
-            display: inline-block;
-        }
-
-        #myCanvas {
-            padding: 10px 0 0 0;
-        }
-
-        #hername {
-            display: none;
-            position: absolute;
-            font-family: 华文行楷, 幼圆, 楷体;
-            font-style: italic;
-            font-size: 1rem;
-            color: black;
-        }
-
-        @-webkit-keyframes bounceInLeft {
-            from, 60%, 75%, 90%, to {
-                -webkit-animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
-                animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
-            }
-
-            0% {
-                opacity: 0;
-                -webkit-transform: translate3d(-3000px, 0, 0);
-                transform: translate3d(-3000px, 0, 0);
-            }
-
-            60% {
-                opacity: 1;
-                -webkit-transform: translate3d(25px, 0, 0);
-                transform: translate3d(25px, 0, 0);
-            }
-
-            75% {
-                -webkit-transform: translate3d(-10px, 0, 0);
-                transform: translate3d(-10px, 0, 0);
-            }
-
-            90% {
-                -webkit-transform: translate3d(5px, 0, 0);
-                transform: translate3d(5px, 0, 0);
-            }
-
-            to {
-                -webkit-transform: none;
-                transform: none;
-            }
-        }
-
-        @keyframes bounceInLeft {
-            from, 60%, 75%, 90%, to {
-                -webkit-animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
-                animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
-            }
-
-            0% {
-                opacity: 0;
-                -webkit-transform: translate3d(-3000px, 0, 0);
-                transform: translate3d(-3000px, 0, 0);
-            }
-
-            60% {
-                opacity: 1;
-                -webkit-transform: translate3d(25px, 0, 0);
-                transform: translate3d(25px, 0, 0);
-            }
-
-            75% {
-                -webkit-transform: translate3d(-10px, 0, 0);
-                transform: translate3d(-10px, 0, 0);
-            }
-
-            90% {
-                -webkit-transform: translate3d(5px, 0, 0);
-                transform: translate3d(5px, 0, 0);
-            }
-
-            to {
-                -webkit-transform: none;
-                transform: none;
-            }
-        }
-
-        .bounceInLeft {
-            -webkit-animation: bounceInLeft 2s;
-            animation-name: bounceInLeft;
-        }
-
-        .sender {
-            clear: both;
-        }
-
-        .sender div:nth-of-type(1) {
-            float: left;
-        }
-
-        .sender div:nth-of-type(2) {
-            background-color: rgb(0,158,238);
-            float: left;
-            margin: 0 10px 10px 0px;
-            padding: 0px 10px 10px 0px;
-            border-radius: 7px;
-        }
-
-        .sender div:nth-of-type(2) img {
-            margin-left: 5px;
-        }
-
-        .receiver div:first-child img,
-        .sender div:first-child img {
-            width: 50px;
-            height: 50px;
-        }
-
-        .sender div > img {
-            margin: 0 10px 0 0px;
-        }
-
-        .receiver div:nth-child(1) {
-            float: right;
-            clear: left;
-        }
-
-        .receiver div:nth-of-type(2) {
-            float: right;
-            background: -webkit-linear-gradient(rgb(127,185,248), rgb(187,216,229)); /* Safari 5.1 - 6.0 */
-            background: -o-linear-gradient(rgb(127,185,248), rgb(187,216,229)); /* Opera 11.1 - 12.0 */
-            background: -moz-linear-gradient(rgb(127,185,248), rgb(187,216,229)); /* Firefox 3.6 - 15 */
-            background: linear-gradient(rgb(127,185,248), rgb(187,216,229)); /* 标准的语法 */
-            margin: 0 10px 10px 20px;
-            padding: 0px 0px 10px 10px;
-            border-radius: 7px;
-        }
-
-        .receiver > div.content > span > img {
-            margin: 0 0px 0 -5px;
-        }
-.portrait img{
-    border-radius:25px;
-}
-        .left_triangle {
-            height: 0px;
-            width: 0px;
-            border-width: 8px;
-            border-style: solid;
-            border-color: transparent aquamarine transparent transparent;
-            position: relative;
-            left: -16px;
-            top: 3px;
-        }
-
-        .right_triangle {
-            height: 0px;
-            width: 0px;
-            border-width: 8px;
-            border-style: solid;
-            border-color: transparent transparent transparent gold;
-            position: relative;
-            right: -16px;
-            top: 3px;
-        }
-
-    </style>
-
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/jquery-min.js"></script>
 </head>
 <body>
+<p>1<div id="div1" style="background-color:#ff9966;border:1px #ff0000 dashed;">2<span>这是一个层</span></div>
+<input name="innerHTML" value="innerHTML" type="button" OnClick="alert(s.innerHTML);s.innerHTML='7<a>dsfsdf</a>'">
+<input name="outerHTML" value="outerHTML" type="button" OnClick="alert(a.outerHTML);a.outerHTML='7<a>dsfsdf</a>'">
 
-<div>
-    <div class="sender">
-        <div class="portrait">
-            <img src="she.jpg" height="462" width="427"/></div>
-        <div class="content">
-            <div class="left_triangle"></div>
-            <span><img width="100%" src="huahua.jpg" alt=""></span>
-        </div>
-    </div>
-    <!-- Right -->
-    <div class="receiver">
-        <div class="portrait">
-            <img src="me.jpg" height="640" width="640"/></div>
-        <div class="content">
-            <div class="right_triangle"></div>
-            <span id="canvasZone"><button onclick="btnClick();">点击这里内部填充红色</button>
-填充之后动画可能更难看，刷新取消<br/>
+<form action="" id="a" name="h" >s<input type="text" id="ya" name="b">45</form>
 
-<div id="hername" class="bounceInLeft">唐姑娘</div> <canvas id="myCanvas"></canvas> </span>
-        </div>
-    </div>
-    <div class="sender">
-        <div class="portrait">
-            <img src="she.jpg" height="462" width="427"/></div>
-        <div class="content">
-            <div class="left_triangle"></div>
-            <span><img width="100%" src="ss1.jpg" alt=""></span>
-        </div>
-    </div>
-    <div class="sender">
-        <div class="portrait">
-            <img src="she.jpg" height="462" width="427"/></div>
-        <div class="content">
-            <div class="left_triangle"></div>
-            <span><img width="100%" src="ss2.jpg" alt=""></span>
-        </div>
-    </div>
-    <div class="receiver">
-        <div class="portrait">
-            <img src="me.jpg" height="640" width="640"/></div>
-        <div class="content">
-            <div class="right_triangle"></div>
-            <span><img width="100%" src="ss3.jpg" alt=""></span>
-        </div>
-    </div>
-    <div class="sender">
-        <div class="portrait">
-            <img src="she.jpg" height="462" width="427"/></div>
-        <div class="content">
-            <div class="left_triangle"></div>
-            <span><img width="100%" height="100%" src="shoushi.jpg" alt=""></span>
-        </div>
-    </div>
-</div>
+<script>
+    console.log(a.outerHTML);//outerText==innerText
+   // console.log(b.outerHTML);
+   //   console.log(b.outerHTML);
+    console.log(a.ya.outerHTML);
+    console.log(a.b.outerHTML);
+    console.log(h.ya.outerHTML);
+    console.log(h.b.outerHTML);
+    /*undefined
+      <form action="" id="a" name="h">s<input type="text" id="a" name="b">45</form>
 
-<script type="text/javascript">
-    flag = 1;
-    var arr = [];//保存所有的XY坐标，只为验证。实际程序中可删除。
-    var r = 4;
-    var radian;//弧度
-    var i;
-    var radianDecrement;//弧度增量
-    var time = 10;//每个点之间的时间间隔
-    var intervalId;
-    var num = 360;//分割为 360 个点
-    var startRadian = Math.PI;
-    var ctx;
-    window.onload = function () {
-        startAnimation();
-    }
+      <form action="" id="a" name="h">s<input type="text" id="a" name="b">45</form>
+      <input type="text" id="a" name="b">
+      <input type="text" id="a" name="b">
+       <input type="text" id="a" name="b">
 
-    function startAnimation() {
-        ctx = document.getElementById("myCanvas").getContext("2d");
-        //让画布撑满整个屏幕，-20是滚动条的位置，需留出。如滚动条出现则会挤压画布。
-        WINDOW_HEIGHT = document.documentElement.clientHeight - 20;
-        WINDOW_WIDTH = document.documentElement.clientWidth - 20;
-        ctx.width = WINDOW_WIDTH;
-        ctx.heigh = WINDOW_HEIGHT;
-        drawHeart();
-    }
+     undefined
+    <form action="" id="h" name="a">s<input type="text" id="a" name="b">45</form>
 
-    function drawHeart() {
-
-        ctx.fillStyle = "red";
-        ctx.strokeStyle = "red";
-        ctx.lineWidth = 1;//设置线的宽度
-        radian = startRadian;//弧度设为初始弧度
-        radianDecrement = Math.PI / num * 2;
-        ctx.moveTo(getX(radian), getY(radian));//移动到初始点
-        i = 0;
-        intervalId = setInterval("printHeart()", time);
-
-    }
-
-    //x = 16 sin^3 t, y = (13 cos t - 5 cos 2t - 2 cos 3t - cos 4t);
-    function printHeart() {
-        radian += radianDecrement;
-        ctx.lineTo(getX(radian), getY(radian));//在旧点和新点之间连线
-        arr.push("X:" + getX(radian) + "<br/>Y:" + getY(radian) + "<br/>");
-        i++;
-        if (flag) ctx.stroke();//画线
-        else ctx.fill();
-        if (i >= num) {
-            show();
-            clearInterval(intervalId);
-            //  document.getElementById("hername").innerHTML = arr.join("");//打印所有的XY坐标点。
-        }
-    }
-
-    function getX(t) {//由弧度得到 X 坐标
-        return 100 + r * (16 * Math.pow(Math.sin(t), 3));
-    }
-
-    function getY(t) {//由弧度得到 Y 坐标
-        return 50 - r * (13 * Math.cos(t) - 5 * Math.cos(2 * t) - 2 * Math.cos(3 * t) - Math.cos(4 * t));
-    }
-
-    function show() {
-        oMyCanvas = document.getElementById("myCanvas");
-        document.getElementById("hername").style.top = (oMyCanvas.offsetTop + 50) + "px";
-        document.getElementById("hername").style.left = (oMyCanvas.offsetLeft + 75) + "px";
-        document.getElementById("hername").style.display = "block";
-    }
-
-    function btnClick() {
-
-        flag = 0;
-        startAnimation();
-        document.getElementById('hername').style.color = 'white';
-    }
-
-    oCanvasContent = document.getElementsByClassName("content")[1];
-    // oCanvasContent.style.position="absolute";
-    portraitDiv = document.getElementsByClassName("portrait")[1];
-    windowInnerWidth = window.innerWidth;
-    windowInnerHeight = window.innerHeight;
-    maxWidth = windowInnerWidth - portraitDiv.offsetWidth - 60;
-    oCanvasContent.style.width = 230 > maxWidth ? maxWidth + "px" : "230px";
-    oContent = document.getElementsByClassName("content");
-    for (i = oContent.length - 1; i > -1; i--) {
-        console.log(oContent[i].children);
-        //  if(oContent[i].children[1].children[0].tagName=="IMG"){ oContent[i].style.margin="0px";oContent[i].style.padding="0px";}
-        oContent[i].style.width = 230 > maxWidth ? maxWidth + "px" : "230px";
-    }
+     <input type="text" id="a" name="b">
+     <input type="text" id="a" name="b">
+    <input type="text" id="a" name="b">
+    <input type="text" id="a" name="b">
+    */
 </script>
-</body>
+<!--
+<input name="outerHTML" value="outerHTML" type="button" OnClick="alert(a.outerHTML);">
+<input name="outerHTML" value="outerHTML" type="button" OnClick="alert(b.outerHTML);">
+<input name="outerHTML" value="outerHTML" type="button" OnClick="alert(h.b.outerHTML);">
+<input name="outerHTML" value="outerHTML" type="button" OnClick="alert(a.a.outerHTML);">
+<input name="outerHTML" value="outerHTML" type="button" OnClick="alert(a.b.outerHTML);">
+<input name="outerHTML" value="outerHTML" type="button" OnClick="alert(h.a.outerHTML);">
+<input name="outerHTML" value="outerHTML" type="button" OnClick="alert(h.a.outerHTML);">
+<input name="outerHTML" value="outerHTML" type="button" OnClick="alert(b.outerHTML);">
+innerHTML 设置或获取位于对象起始和结束标签内的 HTML <br>
+outerHTML 设置或获取对象及其内容的 HTML 形式 <br>
+innerText 设置或获取位于对象起始和结束标签内的文本 <br>
+outerText 设置(包括标签)或获取(不包括标签)对象的文本 <br> <br>-->
+
+</bndy>
 </html>
+<?php
+
+?>
