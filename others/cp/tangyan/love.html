@@ -228,6 +228,12 @@
             font-family: 雅黑, 幼圆;
             text-align: center;
         }
+        .time{
+            font-family: 雅黑, 幼圆;
+            font-size: 20px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
     </style>
 
 </head>
@@ -235,6 +241,7 @@
 <div class="title">
     唐艳<span class="close" onclick="window.close();"></span>
 </div>
+<div class="time">2018.11.09~2018.11.12</div>
 
 <div>
     <div class="sender">
@@ -374,12 +381,12 @@
     windowInnerWidth = window.innerWidth;
     windowInnerHeight = window.innerHeight;
     maxWidth = windowInnerWidth - portraitDiv.offsetWidth - 60;
-    oCanvasContent.style.width = 230 > maxWidth ? maxWidth + "px" : "230px";
+
     oContent = document.getElementsByClassName("content");
     for (i = oContent.length - 1; i > -1; i--) {
-        console.log(oContent[i].children);
+
         //  if(oContent[i].children[1].children[0].tagName=="IMG"){ oContent[i].style.margin="0px";oContent[i].style.padding="0px";}
-        oContent[i].style.width = 230 > maxWidth ? maxWidth + "px" : "230px";
+        if(parseInt(oContent[i].offsetWidth)>230)  oContent[i].style.width = 230 > maxWidth ? maxWidth + "px" : "230px";
     }
 </script>
 </body>
