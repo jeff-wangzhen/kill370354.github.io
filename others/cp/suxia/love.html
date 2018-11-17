@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>love</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            overflow-x: hidden;
+            margin-top: 20px;
+        }
+
+        #canvasZone {
+            width: 60%;
+            text-align: center;
+        }
+
+        div > div {
+
+        }
+
+        #myCanvas {
+            padding: 10px 0 0 0;
+        }
+
+        #hername {
+            display: none;
+            position: absolute;
+            font-family: 华文行楷, 幼圆, 楷体;
+            font-style: italic;
+            font-size: 1rem;
+            color: black;
+        }
+
+        @-webkit-keyframes bounceInLeft {
+            from, 60%, 75%, 90%, to {
+                -webkit-animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+                animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+            }
+            0% {
+                opacity: 0;
+                -webkit-transform: translate3d(-3000px, 0, 0);
+                transform: translate3d(-3000px, 0, 0);
+            }
+            60% {
+                opacity: 1;
+                -webkit-transform: translate3d(25px, 0, 0);
+                transform: translate3d(25px, 0, 0);
+            }
+            75% {
+                -webkit-transform: translate3d(-10px, 0, 0);
+                transform: translate3d(-10px, 0, 0);
+            }
+            90% {
+                -webkit-transform: translate3d(5px, 0, 0);
+                transform: translate3d(5px, 0, 0);
+            }
+            to {
+                -webkit-transform: none;
+                transform: none;
+            }
+        }
+
+        @keyframes bounceInLeft {
+            from, 60%, 75%, 90%, to {
+                -webkit-animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+                animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+            }
+            0% {
+                opacity: 0;
+                -webkit-transform: translate3d(-3000px, 0, 0);
+                transform: translate3d(-3000px, 0, 0);
+            }
+            60% {
+                opacity: 1;
+                -webkit-transform: translate3d(25px, 0, 0);
+                transform: translate3d(25px, 0, 0);
+            }
+            75% {
+                -webkit-transform: translate3d(-10px, 0, 0);
+                transform: translate3d(-10px, 0, 0);
+            }
+            90% {
+                -webkit-transform: translate3d(5px, 0, 0);
+                transform: translate3d(5px, 0, 0);
+            }
+            to {
+                -webkit-transform: none;
+                transform: none;
+            }
+        }
+
+        .bounceInLeft {
+            -webkit-animation: bounceInLeft 2s;
+            animation-name: bounceInLeft;
+        }
+
+        .sender {
+            clear: both;
+        }
+
+        .sender div:nth-of-type(1) {
+            float: left;
+        }
+
+        .sender div:nth-of-type(2) {
+            background-color: rgb(248, 248, 248);
+            float: left;
+            margin: 0 10px 0 0;
+            padding: 5px 0px 5px 0px;
+            word-wrap: break-word;
+            word-break: break-all;
+            min-height: 25px;
+
+        }
+
+        .sender div:nth-of-type(2) img {
+            margin-left: 5px;
+        }
+
+        .receiver div:first-child img,
+        .sender div:first-child img {
+            width: 50px;
+            height: 50px;
+        }
+
+        .sender div > img {
+            margin: 0 10px 0 0px;
+        }
+
+        .sender, .receiver {
+            margin: 10px 0;
+            position: relative;
+        }
+
+        .sender, .receiver {
+            clear: both;
+        }
+
+        .receiver div:nth-child(1) {
+            float: right;
+            clear: left;
+        }
+
+        .receiver div:nth-of-type(2) {
+            float: right;
+            background: rgb(178, 226, 129);
+            margin: 0 10px 0px 0;
+            padding: 5px 0px 5px 5px;
+            border-radius: 7px;
+            min-height: 25px;
+        }
+
+        .receiver > div.contentdiv > div > img {
+            margin: 0 0px 0 -5px;
+        }
+
+        .portrait img {
+            border-radius: 25px;
+        }
+
+        .contentdiv > div:nth-child(2) {
+            word-wrap: break-word;
+            word-break: break-all;
+            white-space: pre-wrap;
+        }
+
+        .left_triangle {
+            height: 0px;
+            width: 0px;
+            border-width: 9px;
+            border-style: solid;
+            border-color: transparent rgb(248, 248, 248) transparent transparent;
+            position: relative;
+            left: -17px;
+            top: 3px;
+            clear: none;
+        }
+
+        .right_triangle {
+            height: 0px;
+            width: 0px;
+            border-width: 9px;
+            border-style: solid;
+            border-color: transparent transparent transparent rgb(160, 231, 90);
+            position: absolute;
+            right: 43px;
+            top: 3px;
+            clear: none;
+        }
+
+        .title {
+            font-family: 雅黑, 幼圆;
+            font-size: 30px;
+            line-height: 50px;
+            height: 50px;
+            color: #fff;
+            background: rgb(48, 48, 48);
+            margin-bottom: 30px;
+        }
+
+        /*.title div {*/
+        /*font-family: 雅黑, 幼圆;*/
+        /*background: rgb(84, 152, 215);*/
+        /*float: right;*/
+
+        /*font-size: 50px;*/
+        /*border-radius: 17px;*/
+        /*}*/
+        #quit {
+            margin-left: 20px;
+            margin-right: 20px;
+            cursor: pointer;
+            float: left;
+        }
+
+        #more {
+            cursor: pointer;
+
+            margin-right: 20px;
+            float: right;
+        }
+
+        /* basic style */
+        .close {
+            /* still bad on picking color */
+            cursor: pointer;
+            color: red;
+            /* make a round button */
+            border-radius: 12px;
+            /* center text */
+            line-height: 20px;
+            text-align: center;
+            height: 30px;
+            width: 50px;
+            font-size: 50px;
+            padding: 0.9rem 0 0.3rem;
+        }
+
+        /* use cross as close button */
+        .close::before {
+            contentdiv: "\2716";
+        }
+
+        /* place the button on top-right */
+        .time {
+            text-align: center;
+            clear: both;
+            color: #fff;
+            background: rgb(213, 213, 213);
+            width: 200px;
+            margin: 0 auto;
+        }
+
+        hr {
+            border: 2px black solid;
+        }
+
+        .clear {
+            clear: both;
+        }
+
+        .foot {
+            margin-top: 100px;
+            font-family: 雅黑, 幼圆;
+            text-align: center;
+        }
+        .container{
+            visibility: hidden;
+        }
+    </style>
+
+</head>
+<body scroll=no>
+
+<div id="animation">
+<div class="content">  <span id="canvasZone"><button onclick="btnClick();">点击这里内部填充红色</button>
+填充之后动画可能更难看，刷新取消<br/>
+
+<div id="hername" class="bounceInLeft">苏姑娘</div> <canvas id="myCanvas" width="200"></canvas> </span></div></div>
+<div class="container">
+    <div class="title">
+        <div id="quit"><</div>
+        苏夏
+        <div id="more">…</div>
+    </div>
+
+    <div class="time">11月11日 晚上19:47</div>
+
+    <div class="sender">
+        <div class="portrait">
+            <img src="img/she.jpg" height="462" width="427"/></div>
+        <div class="contentdiv">
+            <div class="left_triangle"></div>
+            <div class="content">哈</div>
+        </div>
+    </div>
+
+    <div class="receiver">
+        <div class="portrait">
+            <img src="img/me.jpg" height="640" width="640"/></div>
+        <div class="contentdiv">
+            <div class="right_triangle"></div>
+            <div class="content">。。</div>
+        </div>
+    </div>
+    <div class="receiver">
+        <div class="portrait">
+            <img src="img/me.jpg" height="640" width="640"/></div>
+        <div class="contentdiv">
+            <div class="right_triangle"></div>
+            <div class="content">看来你现在很有空诶</div>
+        </div>
+    </div>
+    <div class="time">11月11日 晚上19:52</div>
+
+    <div class="sender">
+        <div class="portrait">
+            <img src="img/she.jpg" height="462" width="427"/></div>
+        <div class="contentdiv">
+            <div class="left_triangle"></div>
+            <div class="content">对啊</div>
+        </div>
+    </div>
+    <!-- Right -->
+    <div class="receiver">
+        <div class="portrait">
+            <img src="img/me.jpg" height="640" width="640"/></div>
+        <div class="contentdiv">
+            <div class="right_triangle"></div>
+            <div class="content">那。。</div>
+        </div>
+    </div>
+    <div class="receiver">
+        <div class="portrait">
+            <img src="img/me.jpg" height="640" width="640"/></div>
+        <div class="contentdiv">
+            <div class="right_triangle"></div>
+            <div class="content">一起出来玩呀</div>
+        </div>
+    </div>
+    <div class="receiver">
+        <div class="portrait">
+            <img src="img/me.jpg" height="640" width="640"/></div>
+        <div class="contentdiv">
+            <div class="right_triangle"></div>
+            <div class="content"><img width="24px" height="24px" src="../weixin-emotions/xieyanxiao.jpg" alt=""></div>
+        </div>
+    </div>
+
+    <div class="time">11月11日 晚上19:57</div>
+    <div class="sender">
+        <div class="portrait">
+            <img src="img/she.jpg" height="462" width="427"/></div>
+        <div class="contentdiv">
+            <div class="left_triangle"></div>
+            <div class="content">你确定吗？</div>
+        </div>
+    </div>
+    <div class="receiver">
+        <div class="portrait">
+            <img src="img/me.jpg" height="640" width="640"/></div>
+        <div class="contentdiv">
+            <div class="right_triangle"></div>
+            <div class="content">真的呀，你没拒绝我耶</div>
+        </div>
+    </div>
+    <div class="receiver">
+        <div class="portrait">
+            <img src="img/me.jpg" height="640" width="640"/></div>
+        <div class="contentdiv">
+            <div class="right_triangle"></div>
+            <div class="content">就怕跑出去了也认不出你。。</div>
+        </div>
+    </div>
+    <div class="sender">
+        <div class="portrait">
+            <img src="img/she.jpg" height="462" width="427"/></div>
+        <div class="contentdiv">
+            <div class="left_triangle"></div>
+            <div class="content">对哦</div>
+        </div>
+    </div>
+    <div class="sender">
+        <div class="portrait">
+            <img src="img/she.jpg" height="462" width="427"/></div>
+        <div class="contentdiv">
+            <div class="left_triangle"></div>
+            <div class="content"><img src="../weixin-emotions/63.png" alt=""></div>
+        </div>
+    </div>
+    <div class="sender">
+        <div class="portrait">
+            <img src="img/she.jpg" height="462" width="427"/></div>
+        <div class="contentdiv">
+            <div class="left_triangle"></div>
+            <div class="content"><img src="../weixin-emotions/66.png" alt=""></div>
+        </div>
+    </div>
+    <div class="receiver">
+        <div class="portrait">
+            <img src="img/me.jpg" height="640" width="640"/></div>
+        <div class="contentdiv">
+            <div class="right_triangle"></div>
+            <div class="content">哇塞</div>
+        </div>
+    </div>
+    <div class="receiver">
+        <div class="portrait">
+            <img src="img/me.jpg" height="640" width="640"/></div>
+        <div class="contentdiv">
+            <div class="right_triangle"></div>
+            <div class="content">好幸福</div>
+        </div>
+    </div>
+    <div class="sender">
+        <div class="portrait">
+            <img src="img/she.jpg" height="462" width="427"/></div>
+        <div class="contentdiv">
+            <div class="left_triangle"></div>
+            <div class="content">哈哈</div>
+        </div>
+    </div>
+    <div class="sender">
+        <div class="portrait">
+            <img src="img/she.jpg" height="462" width="427"/></div>
+        <div class="contentdiv">
+            <div class="left_triangle"></div>
+            <div class="content">欧巴</div>
+        </div>
+    </div>
+    <div class="receiver">
+        <div class="portrait">
+            <img src="img/me.jpg" height="640" width="640"/></div>
+        <div class="contentdiv">
+            <div class="right_triangle"></div>
+            <div class="content">。。</div>
+        </div>
+    </div>
+    <div class="receiver">
+        <div class="portrait">
+            <img src="img/me.jpg" height="640" width="640"/></div>
+        <div class="contentdiv">
+            <div class="right_triangle"></div>
+            <div class="content">搜了一下</div>
+        </div>
+    </div>
+    <div class="receiver">
+        <div class="portrait">
+            <img src="img/me.jpg" height="640" width="640"/></div>
+        <div class="contentdiv">
+            <div class="right_triangle"></div>
+            <div class="content"><img src="../weixin-emotions/wulian.png" alt=""></div>
+        </div>
+    </div>
+    <div class="sender">
+        <div class="portrait">
+            <img src="img/she.jpg" height="462" width="427"/></div>
+        <div class="contentdiv">
+            <div class="left_triangle"></div>
+            <div class="content">猜猜是什么意思</div>
+        </div>
+    </div>
+
+    <div class="time">11月11日 晚上20:01</div>
+    <div class="sender">
+        <div class="portrait">
+            <img src="img/she.jpg" height="462" width="427"/></div>
+        <div class="contentdiv">
+            <div class="left_triangle"></div>
+            <div class="content">别搜了</div>
+        </div>
+    </div>
+
+    <div class="receiver">
+        <div class="portrait">
+            <img src="img/me.jpg" height="640" width="640"/></div>
+        <div class="contentdiv">
+            <div class="right_triangle"></div>
+            <div class="content">已经搜过了</div>
+        </div>
+    </div>
+    <div class="sender">
+        <div class="portrait">
+            <img src="img/she.jpg" height="462" width="427"/></div>
+        <div class="contentdiv">
+            <div class="left_triangle"></div>
+            <div class="content">是哥哥的意思</div>
+        </div>
+    </div>
+
+    <div class="receiver">
+        <div class="portrait">
+            <img src="img/me.jpg" height="640" width="640"/></div>
+        <div class="contentdiv">
+            <div class="right_triangle"></div>
+            <div class="content">好吧</div>
+        </div>
+    </div>
+    <div class="sender">
+        <div class="portrait">
+            <img src="img/she.jpg" height="462" width="427"/></div>
+        <div class="contentdiv">
+            <div class="left_triangle"></div>
+            <div class="content">好嘛</div>
+        </div>
+    </div>
+
+    <div class="sender">
+        <div class="portrait">
+            <img src="img/she.jpg" height="462" width="427"/></div>
+        <div class="contentdiv">
+            <div class="left_triangle"></div>
+            <div class="content">差点就要说撒浪嘿呦</div>
+        </div>
+    </div>
+    <div class="receiver">
+        <div class="portrait">
+            <img src="img/me.jpg" height="640" width="640"/></div>
+        <div class="contentdiv">
+            <div class="right_triangle"></div>
+            <div class="content">我再搜一下</div>
+        </div>
+    </div>
+    <div class="sender">
+        <div class="portrait">
+            <img src="img/she.jpg" height="462" width="427"/></div>
+        <div class="contentdiv">
+            <div class="left_triangle"></div>
+            <div class="content">别搜</div>
+        </div>
+    </div>
+    <div class="sender">
+        <div class="portrait">
+            <img src="img/she.jpg" height="462" width="427"/></div>
+        <div class="contentdiv">
+            <div class="left_triangle"></div>
+            <div class="content">不准搜</div>
+        </div>
+    </div>
+    <div class="receiver">
+        <div class="portrait">
+            <img src="img/me.jpg" height="640" width="640"/></div>
+        <div class="contentdiv">
+            <div class="right_triangle"></div>
+            <div class="content">好好好</div>
+        </div>
+    </div>
+    <div class="receiver">
+        <div class="portrait">
+            <img src="img/me.jpg" height="640" width="640"/></div>
+        <div class="contentdiv">
+            <div class="right_triangle"></div>
+            <div class="content">我猜</div>
+        </div>
+    </div>
+    <div class="sender">
+        <div class="portrait">
+            <img src="img/she.jpg" height="462" width="427"/></div>
+        <div class="contentdiv">
+            <div class="left_triangle"></div>
+            <div class="content">可以</div>
+        </div>
+    </div>
+    <div class="receiver">
+        <div class="portrait">
+            <img src="img/me.jpg" height="640" width="640"/></div>
+        <div class="contentdiv">
+            <div class="right_triangle"></div>
+            <div class="content">情人？</div>
+        </div>
+    </div>
+    <div class="receiver">
+        <div class="portrait">
+            <img src="img/me.jpg" height="640" width="640"/></div>
+        <div class="contentdiv">
+            <div class="right_triangle"></div>
+            <div class="content">哈哈</div>
+        </div>
+    </div>
+    <div class="sender">
+        <div class="portrait">
+            <img src="img/she.jpg" height="462" width="427"/></div>
+        <div class="contentdiv">
+            <div class="left_triangle"></div>
+            <div class="content">不是</div>
+        </div>
+    </div>
+    <div class="sender">
+        <div class="portrait">
+            <img src="img/she.jpg" height="462" width="427"/></div>
+        <div class="contentdiv">
+            <div class="left_triangle"></div>
+            <div class="content">我告诉你好了</div>
+        </div>
+    </div>
+    <div class="receiver">
+        <div class="portrait">
+            <img src="img/me.jpg" height="640" width="640"/></div>
+        <div class="contentdiv">
+            <div class="right_triangle"></div>
+            <div class="content">好</div>
+        </div>
+    </div>
+    <div class="sender">
+        <div class="portrait">
+            <img src="img/she.jpg" height="462" width="427"/></div>
+        <div class="contentdiv">
+            <div class="left_triangle"></div>
+            <div class="content">有点不好意思</div>
+        </div>
+    </div>
+    <div class="receiver">
+        <div class="portrait">
+            <img src="img/me.jpg" height="640" width="640"/></div>
+        <div class="contentdiv">
+            <div class="right_triangle"></div>
+            <div class="content">哈哈</div>
+        </div>
+    </div>
+    <div class="receiver">
+        <div class="portrait">
+            <img src="img/me.jpg" height="640" width="640"/></div>
+        <div class="contentdiv">
+            <div class="right_triangle"></div>
+            <div class="content">污吗</div>
+        </div>
+    </div>
+
+    <div class="receiver">
+        <div class="portrait">
+            <img src="img/me.jpg" height="640" width="640"/></div>
+        <div class="contentdiv">
+            <div class="right_triangle"></div>
+            <div class="content"><img src="../weixin-emotions/xieyanxiao.jpg" alt=""></div>
+        </div>
+    </div>
+
+    <div class="sender">
+        <div class="portrait">
+            <img src="img/she.jpg" height="462" width="427"/></div>
+        <div class="contentdiv">
+            <div class="left_triangle"></div>
+            <div class="content">不污</div>
+        </div>
+    </div>
+
+
+    <div class="sender">
+        <div class="portrait">
+            <img src="img/she.jpg" height="462" width="427"/></div>
+        <div class="contentdiv">
+            <div class="left_triangle"></div>
+            <div class="content">你想啥</div>
+        </div>
+    </div>
+
+
+    <div class="receiver">
+        <div class="portrait">
+            <img src="img/me.jpg" height="640" width="640"/></div>
+        <div class="contentdiv">
+            <div class="right_triangle"></div>
+            <div class="content">哈哈</div>
+        </div>
+    </div>
+    <div class="receiver">
+        <div class="portrait">
+            <img src="img/me.jpg" height="640" width="640"/></div>
+        <div class="contentdiv">
+            <div class="right_triangle"></div>
+            <div class="content">没事</div>
+        </div>
+    </div>
+
+
+    <div class="sender">
+        <div class="portrait">
+            <img src="img/she.jpg" height="462" width="427"/></div>
+        <div class="contentdiv">
+            <div class="left_triangle"></div>
+            <div class="content">想污的，去面壁思过</div>
+        </div>
+    </div>
+
+
+    <div class="sender">
+        <div class="portrait">
+            <img src="img/she.jpg" height="462" width="427"/></div>
+        <div class="contentdiv">
+            <div class="left_triangle"></div>
+            <div class="content">我爱你</div>
+        </div>
+    </div>
+
+
+    <div class="receiver">
+        <div class="portrait">
+            <img src="img/me.jpg" height="640" width="640"/></div>
+        <div class="contentdiv">
+            <div class="right_triangle"></div>
+            <div class="content">好嘛</div>
+        </div>
+    </div>
+    <div class="receiver">
+        <div class="portrait">
+            <img src="img/me.jpg" height="640" width="640"/></div>
+        <div class="contentdiv">
+            <div class="right_triangle"></div>
+            <div class="content">哇塞</div>
+        </div>
+    </div>
+    <div class="receiver">
+        <div class="portrait">
+            <img src="img/me.jpg" height="640" width="640"/></div>
+        <div class="contentdiv">
+            <div class="right_triangle"></div>
+            <div class="content">me too</div>
+        </div>
+    </div>
+    <div class="receiver">
+        <div class="portrait">
+            <img src="img/me.jpg" height="640" width="640"/></div>
+        <div class="contentdiv">
+            <div class="right_triangle"></div>
+            <div class="content"><img src="../weixin-emotions/63.png" alt=""><img src="../weixin-emotions/63.png"
+                                                                                  alt=""><img
+                    src="../weixin-emotions/63.png" alt=""></div>
+        </div>
+    </div>
+    <div class="receiver">
+        <div class="portrait">
+            <img src="img/me.jpg" height="640" width="640"/></div>
+        <div class="contentdiv">
+            <div class="right_triangle"></div>
+            <div class="content">真棒，这个光棍节！</div>
+        </div>
+    </div>
+    <div class="receiver">
+        <div class="portrait">
+            <img src="img/me.jpg" height="640" width="640"/></div>
+        <div class="contentdiv">
+            <div class="right_triangle"></div>
+            <div class="content">What a good day it is!</div>
+        </div>
+    </div>
+
+    <div class="sender">
+        <div class="portrait">
+            <img src="img/she.jpg" height="462" width="427"/></div>
+        <div class="contentdiv">
+            <div class="left_triangle"></div>
+            <div class="content">哈哈</div>
+        </div>
+    </div>
+    <div class="receiver">
+        <div class="portrait">
+            <img src="img/me.jpg" height="640" width="640"/></div>
+        <div class="contentdiv">
+            <div class="right_triangle"></div>
+            <div class="content"><img src="../weixin-emotions/fendou.png" alt=""></div>
+        </div>
+    </div>
+
+
+    <div class="sender">
+        <div class="portrait">
+            <img src="img/she.jpg" height="462" width="427"/></div>
+        <div class="contentdiv">
+            <div class="left_triangle"></div>
+            <div class="content">什么意思？</div>
+        </div>
+    </div>
+
+
+    <div class="receiver">
+        <div class="portrait">
+            <img src="img/me.jpg" height="640" width="640"/></div>
+        <div class="contentdiv">
+            <div class="right_triangle"></div>
+            <div class="content">我要好好学习，才能对得起我们刚刚聊过的话</div>
+        </div>
+    </div>
+    <div class="receiver">
+        <div class="portrait">
+            <img src="img/me.jpg" height="640" width="640"/></div>
+        <div class="contentdiv">
+            <div class="right_triangle"></div>
+            <div class="content">哈哈</div>
+        </div>
+    </div>
+
+    <div class="sender">
+        <div class="portrait">
+            <img src="img/she.jpg" height="462" width="427"/></div>
+        <div class="contentdiv">
+            <div class="left_triangle"></div>
+            <div class="content">对的</div>
+        </div>
+    </div>
+    <div class="sender">
+        <div class="portrait">
+            <img src="img/she.jpg" height="462" width="427"/></div>
+        <div class="contentdiv">
+            <div class="left_triangle"></div>
+            <div class="content">哈哈</div>
+        </div>
+    </div>
+
+    <div class="receiver">
+        <div class="portrait">
+            <img src="img/me.jpg" height="640" width="640"/></div>
+        <div class="contentdiv">
+            <div class="right_triangle"></div>
+            <div class="content"><img src="../weixin-emotions/0.png" alt=""></div>
+        </div>
+    </div>
+
+
+
+
+
+
+</div>
+<br>
+<div class="clear"></div>
+
+<div class="foot">
+    <hr>
+    真希望，没有底线啊……
+</div>
+<script type="text/javascript">
+    function animationChange(){
+        document.getElementById("animation").style.display="none";
+        document.getElementsByClassName("container")[0].style.visibility="visible";
+    }
+    document.getElementById("quit").onclick = function () {
+        alert("不许退出去跟别人聊天！"); //window.close();
+    }
+    document.getElementById("more").onclick = function () {
+       alert("你希望看到什么？告诉我~");
+    }
+    oReceiverDiv = document.getElementsByClassName("receiver");
+    oSenderDiv = document.getElementsByClassName("sender");
+
+    for (i = oReceiverDiv.length - 1; i--; i > -1) {
+        oRightTriangle = oReceiverDiv[i].getElementsByClassName("right_triangle")[0];
+        oContent = oReceiverDiv[i].getElementsByClassName("content")[0];
+     //   console.log(oRightTriangle)
+        oRightTriangle.style.top = oContent.offsetTop - oContent.offsetHeight + 40 + "px";
+    }
+    for (i = oSenderDiv.length - 1; i--; i > -1) {
+        oLeftTriangle = oSenderDiv[i].getElementsByClassName("left_triangle")[0];
+        oContent = oSenderDiv[i].getElementsByClassName("content")[0];
+       // console.log(oLeftTriangle)
+        oLeftTriangle.style.top = oContent.offsetTop - oContent.offsetHeight + 40 + "px";
+    }
+    flag = 1;
+    var arr = [];//保存所有的XY坐标，只为验证。实际程序中可删除。
+    var r = 4;
+    var radian;//弧度
+    var i;
+    var radianDecrement;//弧度增量
+    var time = 10;//每个点之间的时间间隔
+    var intervalId;
+    var num = 360;//分割为 360 个点
+    var startRadian = Math.PI;
+    var ctx;
+    window.onload = function () {
+        startAnimation();
+    }
+
+    function startAnimation() {
+        ctx = document.getElementById("myCanvas").getContext("2d");
+        //让画布撑满整个屏幕，-20是滚动条的位置，需留出。如滚动条出现则会挤压画布。
+        WINDOW_HEIGHT = document.documentElement.clientHeight - 20;
+        WINDOW_WIDTH = document.documentElement.clientWidth - 20;
+        ctx.width = WINDOW_WIDTH;
+        ctx.heigh = WINDOW_HEIGHT;
+        drawHeart();
+    }
+
+    function drawHeart() {
+        ctx.fillStyle = "red";
+        ctx.strokeStyle = "red";
+        ctx.lineWidth = 1;//设置线的宽度
+        radian = startRadian;//弧度设为初始弧度
+        radianDecrement = Math.PI / num * 2;
+        ctx.moveTo(getX(radian), getY(radian));//移动到初始点
+        i = 0;
+        intervalId = setInterval("printHeart()", time);
+    }
+
+    //x = 16 sin^3 t, y = (13 cos t - 5 cos 2t - 2 cos 3t - cos 4t);
+    function printHeart() {
+        radian += radianDecrement;
+        ctx.lineTo(getX(radian), getY(radian));//在旧点和新点之间连线
+        arr.push("X:" + getX(radian) + "<br/>Y:" + getY(radian) + "<br/>");
+        i++;
+        if (flag) ctx.stroke();//画线
+        else ctx.fill();
+        if (i >= num) {
+            show();
+            window.setTimeout(animationChange,3000);
+            clearInterval(intervalId);
+            //  document.getElementById("hername").innerHTML = arr.join("");//打印所有的XY坐标点。
+        }
+    }
+
+    function getX(t) {//由弧度得到 X 坐标
+        return 100 + r * (16 * Math.pow(Math.sin(t), 3));
+    }
+
+    function getY(t) {//由弧度得到 Y 坐标
+        return 50 - r * (13 * Math.cos(t) - 5 * Math.cos(2 * t) - 2 * Math.cos(3 * t) - Math.cos(4 * t));
+    }
+
+    function show() {
+        oMyCanvas = document.getElementById("myCanvas");
+        document.getElementById("hername").style.top = (oMyCanvas.offsetTop + 50) + "px";
+        document.getElementById("hername").style.left = (oMyCanvas.offsetLeft + 75) + "px";
+        document.getElementById("hername").style.display = "block";
+    }
+
+    function btnClick() {
+        flag = 0;
+        startAnimation();
+        document.getElementById('hername').style.color = 'white';
+    }
+
+    oCanvascontentdiv = document.getElementsByClassName("contentdiv")[1];
+    // oCanvascontentdiv.style.position="absolute";
+    portraitDiv = document.getElementsByClassName("portrait")[1];
+    windowInnerWidth = window.innerWidth;
+    windowInnerHeight = window.innerHeight;
+    maxWidth = windowInnerWidth - portraitDiv.offsetWidth - 60;
+    // oCanvascontentdiv.style.width = 230 > maxWidth ? maxWidth + "px" : "230px";
+    ocontentdiv = document.getElementsByClassName("contentdiv");
+    for (i = ocontentdiv.length - 1; i > -1; i--) {
+
+        //  if(ocontentdiv[i].children[1].children[0].tagName=="IMG"){ ocontentdiv[i].style.margin="0px";ocontentdiv[i].style.padding="0px";}
+        if (parseInt(ocontentdiv[i].offsetWidth) > 230) ocontentdiv[i].style.width = 230 > maxWidth ? maxWidth + "px" : "230px";
+    }
+</script>
+</body>
+</html>
