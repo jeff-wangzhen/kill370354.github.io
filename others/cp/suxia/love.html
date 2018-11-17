@@ -10,19 +10,11 @@
             padding: 0;
         }
 
-        body {
-            overflow-x: hidden;
-            margin-top: 20px;
-        }
 
         #canvasZone {
-            width: 60%;
             text-align: center;
         }
 
-        div > div {
-
-        }
 
         #myCanvas {
             padding: 10px 0 0 0;
@@ -112,7 +104,7 @@
             background-color: rgb(248, 248, 248);
             float: left;
             margin: 0 10px 0 0;
-            padding: 5px 0px 5px 0px;
+            padding: 5px 0px 5px 5px;
             word-wrap: break-word;
             word-break: break-all;
             min-height: 25px;
@@ -176,8 +168,8 @@
             border-width: 9px;
             border-style: solid;
             border-color: transparent rgb(248, 248, 248) transparent transparent;
-            position: relative;
-            left: -17px;
+            position:absolute;
+            left: 43px;
             top: 3px;
             clear: none;
         }
@@ -196,7 +188,7 @@
 
         .title {
             font-family: 雅黑, 幼圆;
-            font-size: 30px;
+            font-size: 24px;
             line-height: 50px;
             height: 50px;
             color: #fff;
@@ -243,9 +235,7 @@
         }
 
         /* use cross as close button */
-        .close::before {
-            contentdiv: "\2716";
-        }
+
 
         /* place the button on top-right */
         .time {
@@ -265,13 +255,18 @@
             clear: both;
         }
 
-        .foot {
+        #foot {
+            display: none;
             margin-top: 100px;
             font-family: 雅黑, 幼圆;
             text-align: center;
         }
-        .container{
-            visibility: hidden;
+
+        .container {
+display: none;
+        }
+        #animation{
+            margin: 0 auto;
         }
     </style>
 
@@ -279,10 +274,17 @@
 <body scroll=no>
 
 <div id="animation">
-<div class="content">  <span id="canvasZone"><button onclick="btnClick();">点击这里内部填充红色</button>
-填充之后动画可能更难看，刷新取消<br/>
+    <div class="content">
+        <div id="canvasZone">
+            <button onclick="btnClick();">点击这里内部填充红色</button>
+            <br>
+            填充之后动画可能更难看，刷新取消<br/>
 
-<div id="hername" class="bounceInLeft">苏姑娘</div> <canvas id="myCanvas" width="200"></canvas> </span></div></div>
+            <div id="hername" class="bounceInLeft">苏姑娘</div>
+            <canvas id="myCanvas" width="200"></canvas>
+        </div>
+    </div>
+</div>
 <div class="container">
     <div class="title">
         <div id="quit"><</div>
@@ -778,7 +780,7 @@
     </div>
 
 
-    <div class="receiver">
+    <div class="receiver" id="qaz">
         <div class="portrait">
             <img src="img/me.jpg" height="640" width="640"/></div>
         <div class="contentdiv">
@@ -822,44 +824,65 @@
     </div>
 
 
-
-
-
-
 </div>
 <br>
 <div class="clear"></div>
 
-<div class="foot">
+<div id="foot">
     <hr>
     真希望，没有底线啊……
 </div>
 <script type="text/javascript">
-    function animationChange(){
-        document.getElementById("animation").style.display="none";
-        document.getElementsByClassName("container")[0].style.visibility="visible";
+    function animationChange() {
+        document.getElementById("animation").style.display = "none";
+        document.getElementsByClassName("container")[0].style.display = "block";
+        document.getElementById("foot").style.display = "block";
+        restrictWidth();
     }
+function restrictWidth(){
+    oCanvascontentdiv = document.getElementsByClassName("contentdiv")[1];
+    // oCanvascontentdiv.style.position="absolute";
+    portraitDiv = document.getElementsByClassName("portrait")[1];
+    windowInnerWidth = window.innerWidth;
+    windowInnerHeight = window.innerHeight;
+    maxWidth = windowInnerWidth - portraitDiv.offsetWidth - 60;
+    // oCanvascontentdiv.style.width = 230 > maxWidth ? maxWidth + "px" : "230px";
+    ocontentdiv = document.getElementsByClassName("contentdiv");
+    for (i = ocontentdiv.length - 1; i > -1; i--) {
+        console.log(getComputedStyle(ocontentdiv[i]).getPropertyValue('width'))
+        console.log(ocontentdiv[i].clientWidth)
+        //  if(ocontentdiv[i].children[1].children[0].tagName=="IMG"){ ocontentdiv[i].style.margin="0px";ocontentdiv[i].style.padding="0px";}
+        if (parseInt(ocontentdiv[i].offsetWidth) > 230) ocontentdiv[i].style.width = 230 > maxWidth ? maxWidth + "px" : "230px";
+    }
+}
     document.getElementById("quit").onclick = function () {
         alert("不许退出去跟别人聊天！"); //window.close();
     }
     document.getElementById("more").onclick = function () {
-       alert("你希望看到什么？告诉我~");
+        alert("你希望看到什么？告诉我~");
     }
-    oReceiverDiv = document.getElementsByClassName("receiver");
-    oSenderDiv = document.getElementsByClassName("sender");
+    // oReceiverDiv = document.getElementsByClassName("receiver");
+    // oSenderDiv = document.getElementsByClassName("sender");
+    //
+    // for (i = oReceiverDiv.length - 1; i--; i > -1) {
+    //     oRightTriangle = oReceiverDiv[i].getElementsByClassName("right_triangle")[0];
+    //     oContent = oReceiverDiv[i].getElementsByClassName("content")[0];
+    //     //   console.log(oRightTriangle)
+    //  //   oRightTriangle.style.top = oContent.offsetTop  + "px";
+    // }
+    // for (i = oSenderDiv.length - 1; i--; i > -1) {
+    //     oLeftTriangle = oSenderDiv[i].getElementsByClassName("left_triangle")[0];
+    //     oContent = oSenderDiv[i].getElementsByClassName("content")[0];
+    //     // console.log(oLeftTriangle)
+    //  //   oLeftTriangle.style.top = oContent.offsetTop  + "px";
+    // }
+    // q=document.getElementById("qaz");
+    // a=q.getElementsByClassName("right_triangle")[0];
+    // b=q.getElementsByClassName("content")[0];
+    // console.log(a.style.top)
+    // console.log(b.offsetTop)
+    // console.log(b.offsetHeight)
 
-    for (i = oReceiverDiv.length - 1; i--; i > -1) {
-        oRightTriangle = oReceiverDiv[i].getElementsByClassName("right_triangle")[0];
-        oContent = oReceiverDiv[i].getElementsByClassName("content")[0];
-     //   console.log(oRightTriangle)
-        oRightTriangle.style.top = oContent.offsetTop - oContent.offsetHeight + 40 + "px";
-    }
-    for (i = oSenderDiv.length - 1; i--; i > -1) {
-        oLeftTriangle = oSenderDiv[i].getElementsByClassName("left_triangle")[0];
-        oContent = oSenderDiv[i].getElementsByClassName("content")[0];
-       // console.log(oLeftTriangle)
-        oLeftTriangle.style.top = oContent.offsetTop - oContent.offsetHeight + 40 + "px";
-    }
     flag = 1;
     var arr = [];//保存所有的XY坐标，只为验证。实际程序中可删除。
     var r = 4;
@@ -906,7 +929,8 @@
         else ctx.fill();
         if (i >= num) {
             show();
-            window.setTimeout(animationChange,3000);
+            window.setTimeout(animationChange, 3000);
+
             clearInterval(intervalId);
             //  document.getElementById("hername").innerHTML = arr.join("");//打印所有的XY坐标点。
         }
@@ -933,19 +957,7 @@
         document.getElementById('hername').style.color = 'white';
     }
 
-    oCanvascontentdiv = document.getElementsByClassName("contentdiv")[1];
-    // oCanvascontentdiv.style.position="absolute";
-    portraitDiv = document.getElementsByClassName("portrait")[1];
-    windowInnerWidth = window.innerWidth;
-    windowInnerHeight = window.innerHeight;
-    maxWidth = windowInnerWidth - portraitDiv.offsetWidth - 60;
-    // oCanvascontentdiv.style.width = 230 > maxWidth ? maxWidth + "px" : "230px";
-    ocontentdiv = document.getElementsByClassName("contentdiv");
-    for (i = ocontentdiv.length - 1; i > -1; i--) {
 
-        //  if(ocontentdiv[i].children[1].children[0].tagName=="IMG"){ ocontentdiv[i].style.margin="0px";ocontentdiv[i].style.padding="0px";}
-        if (parseInt(ocontentdiv[i].offsetWidth) > 230) ocontentdiv[i].style.width = 230 > maxWidth ? maxWidth + "px" : "230px";
-    }
 </script>
 </body>
 </html>
