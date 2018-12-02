@@ -184,8 +184,7 @@
 <script type="text/javascript" src="http://ip.chinaz.com/getip.aspx"></script>
 <script src="http://pv.sohu.com/cityjson?ie=utf-8"></script>
 <script src="http://int.dpool.sina.com.cn/iplookup/iplookup.php?format=js"></script>
-<script src="js/xhr.js"></script>
-<script src="js/jquery.js"></script>
+
 <script type="text/javascript">
     doc.innerHTML+=(returnCitySN["cip"] + ' ' + remote_ip_info.country + ' ' + remote_ip_info.province + ' ' + remote_ip_info.city);
     function fnXHRCompleted() {
@@ -194,5 +193,6 @@
     }
     doc.innerHTML+=("<iframe id='taobaoip' src='http://ip.taobao.com/service/getIpInfo.php?ip=" + returnCitySN["cip"] + "'><\/iframe>");
 </script>
+    <script src="js/xhr.js"></script>
 </body>
 </html>
