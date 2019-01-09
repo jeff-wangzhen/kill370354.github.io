@@ -144,6 +144,21 @@
             .close::before {
                 content: "\2716";
             }
+.toleavemessage {
+    position: fixed;
+    /*定位*/
+    right: 0px;
+    bottom: 80px;
+    z-index: 1;
+    cursor: pointer;
+    background-repeat: no-repeat;
+    background-image: url("../images/messagebubble.png");
+    cursor: pointer;
+    font-size: 20px;
+    line-height: 18px;
+    height: 50px;
+    width: 50px;
+}
 		</style>
 		<script language="javascript" type="text/javascript" src="jquery-min.js"></script>
 		<!--引用JQ代码，防止JS无效 -->
@@ -244,6 +259,8 @@
 			<div class="up">
 				<img src="top.png" width="50" height="50"> </div>
 			<!--向上箭头-->
+			 <div class="toleavemessage" id="gotoleavemessage">
+           		 </div><!--跳转到留言-->
 			<div id="code1" class="code"> <img src="code.png" title="扫一扫，用手机看" alt="扫一扫，用手机看" width="50" height="50"> </div>
 			<!--小二维码-->
 			<div id="code2"> <img src="code.png" title="扫一扫，用手机看" alt="扫一扫，用手机看" width="280" height="280"> </div>
