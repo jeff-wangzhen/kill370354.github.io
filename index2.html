@@ -272,7 +272,14 @@
 		<!--引用外部js代码，也就是箭头和二维码部分-->
 		<!--导航条拖拽排序-->
 		<script>
-			    document.getElementsByClassName("toleavemessage")[0].addEventListener("click", function (ev) {
+		 var oGoTomessage = document.getElementById("gotoleavemessage");//alert(oGoTomessage);
+            oGoTomessage.onmouseover = function fnLeave() {
+                this.style.backgroundPosition = "right";
+            };
+            oGoTomessage.onmouseout = function () {
+                this.style.backgroundPosition = "left";
+            };
+            oGoTomessage.addEventListener("click", function (ev) {
                 window.location.href="http://kill370354.gz01.bdysite.com/grwzphp/Messages.php";});
 			(function($) {
 				$(document).ready(function() {
