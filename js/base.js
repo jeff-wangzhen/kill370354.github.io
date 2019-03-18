@@ -26,9 +26,6 @@
 
 
 
-
-(function(){  document.write('<script type="text/javascript" src="jquery.sortable.js"></script>');})();//导航栏可自动排序
-
 /*
 //对二维码部分
 window.onload=function(){
