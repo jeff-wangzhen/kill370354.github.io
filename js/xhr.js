@@ -35,7 +35,7 @@ function fnCreateRequest(url,fnXHRCompleted) {   //初始化对象并发出XMLHt
         //   var oUserTip = document.getElementById("usertip");
         if (oXMLHttpRequest.readyState == 4) {
             if (oXMLHttpRequest.status == 200) {
-                fnXHRCompleted();
+                fnXHRCompleted(oXMLHttpRequest.responseText);
             }
         }
     }
