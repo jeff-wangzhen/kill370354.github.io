@@ -24,7 +24,7 @@
 
         setCookie("time", 1, 0.5);//存储数据
         //fnCreateRequest("js/GetViwerInfo.php?url=" + window.location.href);
-        fnCreateRequest("//kill370354.gz01.bdysite.com/php/GetViwerInfo.php?url=" + window.location.href, function (result) {
+        fnCreateRequest("http://kill370354.gz01.bdysite.com/php/GetViwerInfo.php?url=" + window.location.href, function (result) {
 //console.log(result);
             console.log("欢迎访问本站！");
         });
