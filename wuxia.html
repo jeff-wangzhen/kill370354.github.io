@@ -1,521 +1,535 @@
 <!doctype html>
 <html>
 
-	<head>
-		<meta charset="UTF-8">
-		<meta name="author" content="王振" />
-		<meta name="generator" content="Adobe DreamWeaver CC 2017,Hbuilder" />
-		<meta name="keywords" content="HTML, CSS, 个人网页,学生,初级" />
-		<meta name="description" content="这是一所普通高等学校计算机科学与技术专业一年级学生的个人网页，欢迎访问！限于作者水平，可能不能够实现养眼效果，敬请见谅！" />
-		<meta http-equiv="pragma" content="no-cache">
-		<meta http-equiv="cache-control" content="no-cache">
-		<meta http-equiv="expires" content="0">
-		<title>兴趣武侠</title>
-		<link rel="stylesheet" type="text/css" href="base.css" />
-		<style>
-			.square {
-				/*设置图片样式*/
-				margin-bottom: 20px;
-				/*使图与图之间有适当距离*/
-				display: inline-block;
-				/*使区块显示*/
-				overflow: hidden;
-				/*溢出隐藏*/
-				padding: 0px;
-				/*不留空白*/
-				position: relative;
-				/*为了有鼠标移动到图片上显示文字的效果，并且均有圆角属性，图相对，文字绝对*/
-			}
-			
-			.wz {
-				/*设置诗句样式*/
-				display: inline-block;
-				/*使区块显示*/
-				width: 260px;
-				/*设置诗句区域宽度*/
-			}
-			
-			div p {
-				font-family: 楷体;
-				/*设置诗句以及底部说明文字的格式*/
-				font-size: 20px;
-				/*设置文字大小*/
-				text-align: center;
-				/*使文字居中*/
-			}
-			
-			.sj {
-				font-family: 华文行楷, 黑体;
-				/*设置诗题文字字体*/
-				font-size: 24px;
-				/*设置诗题文字大小*/
-			}
-			
-			.yj {
-				/*设置div圆角属性*/
-				-webkit-border-radius: 20px;
-				/*兼容各种浏览器*/
-				-moz-border-radius: 20px;
-				-ms-border-radius: 20px;
-				-o-border-radius: 20px;
-				border-radius: 20px;
-			}
-			
-			.picradius {
-				/*设置图片圆角属性*/
-				-webkit-border-radius: 20px;
-				/*兼容各种浏览器*/
-				-moz-border-radius: 20px;
-				-ms-border-radius: 20px;
-				-o-border-radius: 20px;
-				border-radius: 20px;
-			}
-			
-			.nameradius {
-				/*设置p段落圆角属性*/
-				-webkit-border-radius: 0 0 20px 20px;
-				/*兼容各种浏览器*/
-				-moz-border-radius: 0 0 20px 20px;
-				-ms-border-radius: 0 0 20px 20px;
-				-o-border-radius: 0 0 20px 20px;
-				border-radius0 0 20px 20px;
-			}
-			/*之所以分别设置三个圆角属性，
- * 是因为如果只有一个div圆角，
- * safari不能正常显示，
- * 却不知道这是为什么
- * 大概是浏览器特性吧*/
-			
-			.square>p {
-				position: absolute;
-				/*为了有鼠标移动到图片上显示文字的效果，并且均有圆角属性，图相对，文字绝对*/
-				bottom: 0px;
-				/*设置文字显示位置，在图片内部下方*/
-				width: 100%;
-				/*设置图片文字栏的宽度*/
-				height: 40px;
-				/*设置图片文字栏的高度*/
-				background: rgba(0, 0, 0, 0.5);
-				/*设置图片文字栏的透明度*/
-				text-align: center;
-				/*使图片文字栏水平居中*/
-				line-height: 40px;
-				/*设置图片文字栏的行高，保证垂直居中*/
-				font-size: 2em;
-				/*设置图片文字栏的字体大小*/
-				color: white;
-				/*设置图片文字栏的颜色*/
-			}
-			
-			.square>img {
-				position: relative;
-				/*为了有鼠标移动到图片上显示文字的效果，图相对，文字绝对*/
-			}
-			
-			.square p {
-				display: none;
-				/*为了有鼠标移动到图片上显示文字的效果，鼠标移动到图片上才显示*/
-			}
-			/*具体设置每一张图的宽度高度*/
-			
-			.xkx {
-				/*设置02侠客行的图片宽度高度，设置宽高，以及使图文共同居中，设置margin*/
-				width: 400px;
-				height: 299px;
-				margin: 35px 0 0 0px;
-			}
-			
-			.baidutieba,
-			.xkx,
-			.sd03,
-			.sd08,
-			.sd17,
-			.sd83,
-			.clxxz,
-			.lxfcq,
-			.sd06,
-			.tlbb,
-			.wz,
-			.music,
-			.oLastAppear {
-				visibility: hidden;
-			}
-			
-			.sd17 {
-				/*设置16版射雕英雄传的图片宽度高度*/
-				width: 471px;
-				height: 324px;
-			}
-			
-			.sd03 {
-				/*设置03版射雕英雄传的图片宽度高度*/
-				width: 510px;
-				height: 282px;
-			}
-			
-			.sd83 {
-				/*设置83版射雕英雄传的图片宽度高度*/
-				width: 490px;
-				height: 375px;
-			}
-			
-			.sd08 {
-				/*设置08版射雕英雄传的图片宽度高度*/
-				width: 492px;
-				height: 375px;
-			}
-			
-			.clxxz {
-				/*设置楚留香新传的图片宽度高度*/
-				width: 500px;
-				height: 263px;
-			}
-			
-			.lxfcq {
-				/*设置陆小凤传奇的图片宽度高度*/
-				width: 478px;
-				height: 263px;
-			}
-			
-			.sd06 {
-				/*设置06版神雕侠侣的图片宽度高度*/
-				width: 420px;
-				height: 300px;
-				margin-left: 15px;
-			}
-			
-			.tlbb {
-				/*设置13版天龙八部的图片宽度高度*/
-				width: 500px;
-				height: 300px;
-				margin-left: 35px;
-			}
-			
-			.transform {
-				/*设置图片旋逆时针转角度，并兼容各种浏览器*/
-				-webkit-transform: rotate(-3deg);
-				-moz-transform: rotate(-3deg);
-				-ms-transform: rotate(-3deg);
-				-o-transform: rotate(-3deg);
-				transform: rotate(-3deg);
-			}
-			
-			.transform2 {
-				/*设置图片顺时针旋转角度，并兼容各种浏览器*/
-				-webkit-transform: rotate(3deg);
-				-moz-transform: rotate(3deg);
-				-ms-transform: rotate(3deg);
-				-o-transform: rotate(3deg);
-				transform: rotate(3deg);
-			}
-			
-			.music {
-				/*插入一首音乐*/
-				display: inline-block;
-				/*区块显示*/
-				width: 300px;
-			}
-			
-			.music p {
-				/*这是插入的音乐名*/
-				font-family: 华文行楷, 隶书, 楷体;
-				/*音乐名字体*/
-				text-align: center;
-				/*文字居中*/
-				color: #fff;
-				/*音乐名颜色*/
-				background-color: #000000;
-				/*去除上面设置的背景阴影，还好音乐播放器外观就是黑色的*/
-				display: block;
-				/*使音乐名能一直显示，防止上面设置的鼠标移动才出现的效果*/
-			}
-		</style>
-		<script language="javascript" type="text/javascript" src="jquery-min.js"></script>
-	</head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="王振"/>
+    <meta name="generator" content="Adobe DreamWeaver CC 2017,Hbuilder"/>
+    <meta name="keywords" content="HTML, CSS, 个人网页,学生,初级"/>
+    <meta name="description" content="这是一所普通高等学校计算机科学与技术专业一年级学生的个人网页，欢迎访问！限于作者水平，可能不能够实现养眼效果，敬请见谅！"/>
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="expires" content="0">
+    <title>兴趣武侠</title>
+    <link rel="stylesheet" type="text/css" href="css/base.css"/>
+    <style>
+        .square {
+            /*设置图片样式*/
+            margin-bottom: 20px;
+            /*使图与图之间有适当距离*/
+            display: inline-block;
+            /*使区块显示*/
+            overflow: hidden;
+            /*溢出隐藏*/
+            padding: 0px;
+            /*不留空白*/
+            position: relative;
+            /*为了有鼠标移动到图片上显示文字的效果，并且均有圆角属性，图相对，文字绝对*/
+        }
 
-	<body>
-		<!--导航项 开始-->
-		<div class="top">
-			<div class="nav" id="nav">
-				<ul class="navigation">
-					<li>
-						<a href="index2.html" target="_blank">基本信息</a>
-					</li>
-					<li>
-						<a href="">兴趣武侠</a>
-					</li>
-					<li>
-						<a href="touch.html" target="_blank">联系方式</a>
-					</li>
-				</ul>
-			</div>
-			<!--导航项可以拖动位置-->
-		</div>
-		<!--导航部分结束-->
-		<div class="container">
-			<!--制作主体部分-->
-			<div class="banner">
-				<div class="myname">兴趣 </div>
-				<div class="htmlname">武侠</div>
-				<!--制作banner部分-->
-			</div>
-			<!--主要部分 开始-->
-			<div class="baidutieba">
-				<a href="http://tieba.baidu.com/f?ie=utf-8&kw=%E6%AD%A6%E4%BE%A0&fr=search&red_tag=0775371370" target="_blank"><img src="wxuia1.jpg" width="1000" height="180" alt="百度武侠吧banner" title="百度武侠吧banner"></a>
-			</div>
-			<!--图片来源，这张图也算是banner，不设置旋转、圆角-->
-			<div class="square music">
-				<!--<embed src="http://data.5sing.kgimg.com/G035/M01/1E/01/Yw0DAFXpzs2AfQpRAIBwJ2U9TdY961.mp3" controls="controls" autostar="true" loop="true" type="audio/mpeg" />
-				插入一首音乐，但是为什么会永远刷新呢？审查元素控制台报错：
-				Resource interpreted as Document but transferred with MIME type audio/mpeg: "http://data.5sing.kgimg.com/G035/M01/1E/01/Yw0DAFXpzs2AfQpRAIBwJ2U9TdY961.mp3".
-				真奇怪，所以将音频文件上传到服务器上了-->
-				<embed src="fxhzz.mp3" controls="controls" autostar="true" loop="true" type="audio/mpeg" />
-				<p>《风雪会中州》</p>
-				<!--高度问题，JS代码实现时下方有略微阴影感，并且可能一开始字就有，挡着播放控制条，却不知如何解决，惭愧-->
-				<!--问题：loop不管用！-->
-			</div>
-			<div class="square xkx"><img src="wx.jpg" width="400" height="299" class="yj" alt="侠客行"></div>
-			<!--这张图不设置旋转，但有圆角属性-->
+        .wz {
+            /*设置诗句样式*/
+            display: inline-block;
+            /*使区块显示*/
+            width: 260px;
+            /*设置诗句区域宽度*/
+        }
 
-			<div class="wz">
-				<p class="sj">侠客行 </p>
-				<p style="margin:-20px;">李白</p>
-				<p>赵客缦胡缨，吴钩霜雪明。 <br/> 银鞍照白马，飒沓如流星。 <br/> 十步杀一人，千里不留行。 <br/> 事了拂衣去，深藏身与名。 <br/> 闲过信陵饮，脱剑膝前横。 <br/> 将炙啖朱亥，持觞劝侯嬴。 <br/> 三杯吐然诺，五岳倒为轻。 <br/> 眼花耳热后，意气素霓生。 <br/> 救赵挥金锤，邯郸先震惊。 <br/> 千秋二壮士，烜赫大梁城。 <br/> 纵死侠骨香，不惭世上英。 <br/> 谁能书阁下，白首太玄经。 <br/>
-				</p>
-			</div>
-			<!--李白的诗-->
+        div p {
+            font-family: 楷体;
+            /*设置诗句以及底部说明文字的格式*/
+            font-size: 20px;
+            /*设置文字大小*/
+            text-align: center;
+            /*使文字居中*/
+        }
 
-			<div class="square yj sd17 transform"> <img src="sd17.jpg" width="471" height="324" class="picradius" alt="16版射雕英雄传">
-				<p class="nameradius">17版射雕英雄传</p>
-			</div>
-			<!--图片设置了旋转、圆角，图片之所以没有title，是因为我弄了p标签-->
+        .sj {
+            font-family: 华文行楷, 黑体;
+            /*设置诗题文字字体*/
+            font-size: 24px;
+            /*设置诗题文字大小*/
+        }
 
-			<div class="square yj sd03 transform2"> <img src="sd03.gif" width="510" height="282" class="picradius" alt="03版射雕英雄传">
-				<p class="nameradius">03版射雕英雄传</p>
-			</div>
-			<!--图片设置了旋转、圆角-->
+        .yj {
+            /*设置div圆角属性*/
+            -webkit-border-radius: 20px;
+            /*兼容各种浏览器*/
+            -moz-border-radius: 20px;
+            -ms-border-radius: 20px;
+            -o-border-radius: 20px;
+            border-radius: 20px;
+        }
 
-			<div class="square yj sd83 transform2"> <img src="sd83.jpg" width="490" height="375" class="picradius" alt="83版射雕英雄传">
-				<p class="nameradius">83版射雕英雄传</p>
-			</div>
-			<!--图片设置了旋转、圆角-->
+        .picradius {
+            /*设置图片圆角属性*/
+            -webkit-border-radius: 20px;
+            /*兼容各种浏览器*/
+            -moz-border-radius: 20px;
+            -ms-border-radius: 20px;
+            -o-border-radius: 20px;
+            border-radius: 20px;
+        }
 
-			<div class="square yj sd08 transform"> <img src="sd08.jpg" width="492" height="375" class="picradius" alt="08版射雕英雄传">
-				<p class="nameradius">08版射雕英雄传</p>
-			</div>
-			<!--图片设置了旋转、圆角-->
+        .nameradius {
+            /*设置p段落圆角属性*/
+            -webkit-border-radius: 0 0 20px 20px;
+            /*兼容各种浏览器*/
+            -moz-border-radius: 0 0 20px 20px;
+            -ms-border-radius: 0 0 20px 20px;
+            -o-border-radius: 0 0 20px 20px;
+            border-radius0 0 20px 20px;
+        }
 
-			<div class="square yj clxxz"> <img src="clx.jpg" width="500" height="263" class="picradius" alt="楚留香新传" />
-				<p class="nameradius">楚留香新传</p>
-			</div>
-			<!--图片设置了圆角，没有旋转-->
+        /*之所以分别设置三个圆角属性，
+* 是因为如果只有一个div圆角，
+* safari不能正常显示，
+* 却不知道这是为什么
+* 大概是浏览器特性吧*/
 
-			<div class="square yj lxfcq"> <img src="lxf.jpg" width="478" height="263" class="picradius" alt="陆小凤传奇">
-				<p class="nameradius">陆小凤传奇</p>
-			</div>
-			<!--图片设置了圆角，没有旋转-->
+        .square > p {
+            position: absolute;
+            /*为了有鼠标移动到图片上显示文字的效果，并且均有圆角属性，图相对，文字绝对*/
+            bottom: 0px;
+            /*设置文字显示位置，在图片内部下方*/
+            width: 100%;
+            /*设置图片文字栏的宽度*/
+            height: 40px;
+            /*设置图片文字栏的高度*/
+            background: rgba(0, 0, 0, 0.5);
+            /*设置图片文字栏的透明度*/
+            text-align: center;
+            /*使图片文字栏水平居中*/
+            line-height: 40px;
+            /*设置图片文字栏的行高，保证垂直居中*/
+            font-size: 2em;
+            /*设置图片文字栏的字体大小*/
+            color: white;
+            /*设置图片文字栏的颜色*/
+        }
 
-			<div class="square yj sd06 transform2"> <img src="sdxl.jpg" width="420" height="300" class="picradius" alt="06神雕侠侣">
-				<p class="nameradius">06神雕侠侣</p>
-			</div>
-			<!--图片设置了旋转、圆角-->
+        .square > img {
+            position: relative;
+            /*为了有鼠标移动到图片上显示文字的效果，图相对，文字绝对*/
+        }
 
-			<div class="square yj tlbb transform"> <img src="tlbb.jpg" width="500" height="300" class="picradius" alt="13天龙八部">
-				<p class="nameradius">13天龙八部</p>
-			</div>
-			<!--图片设置了旋转、圆角-->
-			<p class="oLastAppear">…………</p>
-			<p class="oLastAppear">
-				<a href="http://www.rxgl.net/wuxia/" target="_blank">经典之多，不胜枚举</a>
-				<!--主要部分 结束-->
-			</p>
-			<div class="foot" style="font-weight:normal;    font-family:宋体;">重庆师范大学计算机与信息科学学院16计科王振制作，版权所有。</div>
-			<!--制作脚注部分，为防止字体显示不正常，特设行内样式-->
-			<div class="decoration"> <img src="jian.gif" width="129" height="592"></div>
-			<!--装饰图片-->
-			<div class="up">
-				<img src="top.png" width="50" height="50"> </div>
-			<!--向上箭头-->
-			<div id="code1" class="code"> <img src="code.png" title="扫一扫，用手机看" alt="扫一扫，用手机看" width="50" height="50"> </div>
-			<!--小二维码-->
-			<div id="code2"> <img src="code.png" title="扫一扫，用手机看" alt="扫一扫，用手机看" width="280" height="280"> </div>
-			<!--大二维码-->
-		</div>
-		<script type="text/javascript" src="base.js">
-		</script>
-		<!--引用外部js代码，也就是箭头和二维码部分-->
-		<script type="text/javascript">
-			//下面这段JS代码是为了实现鼠标移到图片上，使图片下部说明文字慢慢浮现出来的效果，是从腾讯课堂学到的。虽然不太明白，但还是用了。只是不知道为什么效果并不是很理想，方向并不很灵敏，难道系统误判？
-			//还有一个问题，出去的效果在“风雪会中州”很好，但是在下面的图片处就不行。
-			$(".square").hover(function(e) { //进入
-				var e = e || window.event;
-				var left = $(this).offset().left, //获取当前四条边偏移值
+        .square p {
+            display: none;
+            /*为了有鼠标移动到图片上显示文字的效果，鼠标移动到图片上才显示*/
+        }
 
-					top = $(this).offset().top,
-					right = left + $(this).width();
-				bottom = top + $(this).height();
-				var x = e.pageX, //获取鼠标坐标
-					y = e.pageY;
-				var sT = Math.abs(top - y), //获取鼠标到边的距离，取绝对值
-					sL = Math.abs(left - x),
-					sB = Math.abs(bottom - y),
-					sR = Math.abs(right - x);
-				var min = Math.min(sT, sL, sB, sR); //找鼠标距离哪一条边最近
-				if(min == sT) { //从上面进入
-					$(this).find("p").eq(0).css({
-						left: 0,
-						bottom: 400,
-						display: "block"
-					}).stop().animate({
-						left: 0,
-						bottom: "-32px"
-					}, 500);
-				} else if(min == sB) { //从下面进入
-					$(this).find("p").eq(0).css({
-						left: 0,
-						bottom: "-80px",
-						display: "block"
-					}).stop().animate({
-						left: 0,
-						bottom: "-32px"
-					}, 500);
-				} else if(min == sR) { //从右边进入
-					$(this).find("p").eq(0).css({
-						left: "510px",
-						bottom: "-32px",
-						display: "block"
-					}).stop().animate({
-						left: 0,
-						bottom: "-32px"
-					}, 500);
-				} else if(min == sL) { //从左边进入
-					$(this).find("p").eq(0).css({
-						left: "-510px",
-						bottom: "-32px",
-						display: "block"
-					}).stop().animate({
-						left: 0,
-						bottom: "-32px"
-					}, 500);
-				};
+        /*具体设置每一张图的宽度高度*/
 
-			}, function(e) { //出去
-				var e = e || window.event;
-				var left = $(this).offset().left,
-					top = $(this).offset().top,
-					right = left + $(this).width(),
-					bottom = top + $(this).height();
-				var x = e.pageX,
-					y = e.pageY;
-				var sT = Math.abs(top - y),
-					sL = Math.abs(left - x),
-					sB = Math.abs(bottom - y),
-					sR = Math.abs(right - x);
-				var min = Math.min(sT, sL, sB, sR);
-				if(min == sT) { //从上面出去
-					$(this).find("p").eq(0).stop().animate({
-						left: 0,
-						bottom: "400px"
-					}, 500);
-					//if($(this).find("p").eq(0).offset().bottom>=-10)$(this).find("p").eq(0).hide();
-					//以下鼠标移出后文字消失的效果得益于overflow:hidden;并未真正消失，此处代码暴露了这个缺点，多次尝试（诸如动画里加display:none和visibility:hidden，或者动画外加加 .hide() 等均无效），无力解决，只好退而求其次，使动画播放在整张图片上
-				} else if(min == sB) { //从下面出去
-					$(this).find("p").eq(0).stop().animate({
-						left: 0,
-						bottom: "-75px"
-					}, 500);
-				} else if(min == sR) { //从右边出去
-					$(this).find("p").eq(0).stop().animate({
-						left: "510px",
-						bottom: "-32px"
-					}, 500);
-				} else if(min == sL) { //从左边出去
-					$(this).find("p").eq(0).stop().animate({
-						left: "-510px",
-						bottom: "-32px"
-					}, 500);
-				};
+        .xkx {
+            /*设置02侠客行的图片宽度高度，设置宽高，以及使图文共同居中，设置margin*/
+            width: 400px;
+            height: 299px;
+            margin: 35px 0 0 0px;
+        }
 
-			})
-		</script>
-		<script>
-			(function($) {
-				$(document).ready(function() {
-					var oOffsetTopMusic = $(".music").offset().top,
-						oOffsetTopTieba = $(".baidutieba").offset().top,
-						oWenzi = $(".wz").offset().top,
-						oOffsetHeightMusic = $(".music").height() / 2,
-						oOffsetHeightTieba = $(".baidutieba").height() / 2,
-						oWenzi = $(".wz").height() / 2;
-					setTimeout(function() {
-						$(" .baidutieba").css("visibility", "visible");
-						$(".baidutieba").addClass("leftIn").show();
-					}, 3000);
-					setTimeout(function() {
-						$(".wz").css("visibility", "visible");
-						$(".wz").addClass("flipInXCode").show();
-					}, 4000);
-					setTimeout(function() {
-						$(" .xkx").css("visibility", "visible");
-						$(".xkx").addClass("tada");
-					}, 5000);
-					setTimeout(function() {
-						$(" .music").css("visibility", "visible");
-						$(".music").addClass("tada");
-					}, 6000);
-					setTimeout(function() {
-						$(".oLastAppear").css("visibility", "visible");
-					}, 6000);
+        .baidutieba,
+        .xkx,
+        .sd03,
+        .sd08,
+        .sd17,
+        .sd83,
+        .clxxz,
+        .lxfcq,
+        .sd06,
+        .tlbb,
+        .wz,
+        .music,
+        .oLastAppear {
+            visibility: hidden;
+        }
 
-				});
-			})(jQuery); //百度贴吧图片的动态效果，因为图片在较上部，所以不放入scroll函数中
+        .sd17 {
+            /*设置16版射雕英雄传的图片宽度高度*/
+            width: 471px;
+            height: 324px;
+        }
 
-			(function($) {
-				setTimeout(function() {
-					var oOffsetTopsd17 = $(".sd17").offset().top,
-						oOffsetTopSd83 = $(".sd83").offset().top,
-						oOffsetTopClxxz = $(".clxxz").offset().top,
-						oOffsetTopSd06 = $(".sd06").offset().top,
-						oOffsetHeightsd17 = $(".music").height() / 2,
-						oOffsetHeightClxxz = $(".clxxz").height() / 2,
-						oOffsetHeightSd83 = $(".sd83").height() / 2,
-						oOffsetHeightSd06 = $(".sd06").height() / 2;
-					$(window).scroll(function() {
+        .sd03 {
+            /*设置03版射雕英雄传的图片宽度高度*/
+            width: 510px;
+            height: 282px;
+        }
 
-						if(oOffsetTopsd17 + oOffsetHeightsd17 <= ($(window).scrollTop() + $(window).height())) {
-							$(".sd17").css("visibility", "visible");
-							$(" .sd03").css("visibility", "visible");
-							$(".sd17").addClass("leftIn").show();
-							$(" .sd03").addClass("rightIn").show();
-						}
-						if(oOffsetTopSd83 + oOffsetHeightSd83 <= ($(window).scrollTop() + $(window).height())) {
-							$(".sd83").css("visibility", "visible");
-							$(".sd08").css("visibility", "visible");
-							$(".sd83").addClass("rightInbounce").show();
-							$(".sd08").addClass("leftInbounce").show();
-						}
-						if(oOffsetTopClxxz + oOffsetHeightClxxz <= ($(window).scrollTop() + $(window).height())) {
-							$(".clxxz").css("visibility", "visible");
-							$(".lxfcq").css("visibility", "visible");
-							$(".clxxz").addClass("avatar1").show();
-							$(".lxfcq").addClass("avatar2").show();
-						}
+        .sd83 {
+            /*设置83版射雕英雄传的图片宽度高度*/
+            width: 490px;
+            height: 375px;
+        }
 
-						if(oOffsetTopSd06 + oOffsetHeightSd06 <= ($(window).scrollTop() + $(window).height())) {
-							$(".sd06").css("visibility", "visible");
-							$(".tlbb").css("visibility", "visible");
-							$(".sd06").addClass("avatar3").show();
-							$(".tlbb").addClass("avatar4").show();
-						}
-					});
+        .sd08 {
+            /*设置08版射雕英雄传的图片宽度高度*/
+            width: 492px;
+            height: 375px;
+        }
 
-				}, 3000); //延迟加载，等标题全部出来之后才慢慢加载
-			})(jQuery);
+        .clxxz {
+            /*设置楚留香新传的图片宽度高度*/
+            width: 500px;
+            height: 263px;
+        }
 
-			var oScrollTop = 0;
-			setTimeout("setInterval('if(oScrollTop<document.body.clientHeight){window.scrollTo(0,oScrollTop);oScrollTop++;}',1);", 5000);
-			//放映PPT效果，自动滚动
-		</script>
-	</body>
+        .lxfcq {
+            /*设置陆小凤传奇的图片宽度高度*/
+            width: 478px;
+            height: 263px;
+        }
+
+        .sd06 {
+            /*设置06版神雕侠侣的图片宽度高度*/
+            width: 420px;
+            height: 300px;
+            margin-left: 15px;
+        }
+
+        .tlbb {
+            /*设置13版天龙八部的图片宽度高度*/
+            width: 500px;
+            height: 300px;
+            margin-left: 35px;
+        }
+
+        .transform {
+            /*设置图片旋逆时针转角度，并兼容各种浏览器*/
+            -webkit-transform: rotate(-3deg);
+            -moz-transform: rotate(-3deg);
+            -ms-transform: rotate(-3deg);
+            -o-transform: rotate(-3deg);
+            transform: rotate(-3deg);
+        }
+
+        .transform2 {
+            /*设置图片顺时针旋转角度，并兼容各种浏览器*/
+            -webkit-transform: rotate(3deg);
+            -moz-transform: rotate(3deg);
+            -ms-transform: rotate(3deg);
+            -o-transform: rotate(3deg);
+            transform: rotate(3deg);
+        }
+
+        .music {
+            /*插入一首音乐*/
+            display: inline-block;
+            /*区块显示*/
+            width: 300px;
+        }
+
+        .music p {
+            /*这是插入的音乐名*/
+            font-family: 华文行楷, 隶书, 楷体;
+            /*音乐名字体*/
+            text-align: center;
+            /*文字居中*/
+            color: #fff;
+            /*音乐名颜色*/
+            background-color: #000000;
+            /*去除上面设置的背景阴影，还好音乐播放器外观就是黑色的*/
+            display: block;
+            /*使音乐名能一直显示，防止上面设置的鼠标移动才出现的效果*/
+        }
+    </style>
+    <script language="javascript" type="text/javascript" src="js/jquery-min.js"></script>
+</head>
+
+<body>
+<!--导航项 开始-->
+<div class="top">
+    <div class="nav" id="nav">
+        <ul class="navigation">
+            <li>
+                <a href="index2.html" target="_blank">基本信息</a>
+            </li>
+            <li>
+                <a href="">兴趣武侠</a>
+            </li>
+            <li>
+                <a href="touch.html" target="_blank">联系方式</a>
+            </li>
+        </ul>
+    </div>
+    <!--导航项可以拖动位置-->
+</div>
+<!--导航部分结束-->
+<div class="container">
+    <!--制作主体部分-->
+    <div class="banner">
+        <div class="myname">兴趣</div>
+        <div class="htmlname">武侠</div>
+        <!--制作banner部分-->
+    </div>
+    <!--主要部分 开始-->
+    <div class="baidutieba">
+        <a href="http://tieba.baidu.com/f?ie=utf-8&kw=%E6%AD%A6%E4%BE%A0&fr=search&red_tag=0775371370"
+           target="_blank"><img src="images/wxuia1.jpg" width="1000" height="180" alt="百度武侠吧banner" title="百度武侠吧banner"></a>
+    </div>
+    <!--图片来源，这张图也算是banner，不设置旋转、圆角-->
+    <div class="square music">
+        <!--<embed src="http://data.5sing.kgimg.com/G035/M01/1E/01/Yw0DAFXpzs2AfQpRAIBwJ2U9TdY961.mp3" controls="controls" autostar="true" loop="true" type="audio/mpeg" />
+        插入一首音乐，但是为什么会永远刷新呢？审查元素控制台报错：
+        Resource interpreted as Document but transferred with MIME type audio/mpeg: "http://data.5sing.kgimg.com/G035/M01/1E/01/Yw0DAFXpzs2AfQpRAIBwJ2U9TdY961.mp3".
+        真奇怪，所以将音频文件上传到服务器上了-->
+        <embed src="fxhzz.mp3" controls="controls" autostar="true" loop="true" type="audio/mpeg"/>
+        <p>《风雪会中州》</p>
+        <!--高度问题，JS代码实现时下方有略微阴影感，并且可能一开始字就有，挡着播放控制条，却不知如何解决，惭愧-->
+        <!--问题：loop不管用！-->
+    </div>
+    <div class="square xkx"><img src="images/wx.jpg" width="400" height="299" class="yj" alt="侠客行"></div>
+    <!--这张图不设置旋转，但有圆角属性-->
+
+    <div class="wz">
+        <p class="sj">侠客行 </p>
+        <p style="margin:-20px;">李白</p>
+        <p>赵客缦胡缨，吴钩霜雪明。 <br/> 银鞍照白马，飒沓如流星。 <br/> 十步杀一人，千里不留行。 <br/> 事了拂衣去，深藏身与名。 <br/> 闲过信陵饮，脱剑膝前横。 <br/> 将炙啖朱亥，持觞劝侯嬴。
+            <br/> 三杯吐然诺，五岳倒为轻。 <br/> 眼花耳热后，意气素霓生。 <br/> 救赵挥金锤，邯郸先震惊。 <br/> 千秋二壮士，烜赫大梁城。 <br/> 纵死侠骨香，不惭世上英。 <br/>
+            谁能书阁下，白首太玄经。 <br/>
+        </p>
+    </div>
+    <!--李白的诗-->
+
+    <div class="square yj sd17 transform"><img src="images/sd17.jpg" width="471" height="324" class="picradius"
+                                               alt="16版射雕英雄传">
+        <p class="nameradius">17版射雕英雄传</p>
+    </div>
+    <!--图片设置了旋转、圆角，图片之所以没有title，是因为我弄了p标签-->
+
+    <div class="square yj sd03 transform2"><img src="images/sd03.gif" width="510" height="282" class="picradius"
+                                                alt="03版射雕英雄传">
+        <p class="nameradius">03版射雕英雄传</p>
+    </div>
+    <!--图片设置了旋转、圆角-->
+
+    <div class="square yj sd83 transform2"><img src="images/sd83.jpg" width="490" height="375" class="picradius"
+                                                alt="83版射雕英雄传">
+        <p class="nameradius">83版射雕英雄传</p>
+    </div>
+    <!--图片设置了旋转、圆角-->
+
+    <div class="square yj sd08 transform"><img src="images/sd08.jpg" width="492" height="375" class="picradius"
+                                               alt="08版射雕英雄传">
+        <p class="nameradius">08版射雕英雄传</p>
+    </div>
+    <!--图片设置了旋转、圆角-->
+
+    <div class="square yj clxxz"><img src="images/clx.jpg" width="500" height="263" class="picradius" alt="楚留香新传"/>
+        <p class="nameradius">楚留香新传</p>
+    </div>
+    <!--图片设置了圆角，没有旋转-->
+
+    <div class="square yj lxfcq"><img src="images/lxf.jpg" width="478" height="263" class="picradius" alt="陆小凤传奇">
+        <p class="nameradius">陆小凤传奇</p>
+    </div>
+    <!--图片设置了圆角，没有旋转-->
+
+    <div class="square yj sd06 transform2"><img src="images/sdxl.jpg" width="420" height="300" class="picradius"
+                                                alt="06神雕侠侣">
+        <p class="nameradius">06神雕侠侣</p>
+    </div>
+    <!--图片设置了旋转、圆角-->
+
+    <div class="square yj tlbb transform"><img src="images/tlbb.jpg" width="500" height="300" class="picradius"
+                                               alt="13天龙八部">
+        <p class="nameradius">13天龙八部</p>
+    </div>
+    <!--图片设置了旋转、圆角-->
+    <p class="oLastAppear">…………</p>
+    <p class="oLastAppear">
+        <a href="http://www.rxgl.net/wuxia/" target="_blank">经典之多，不胜枚举</a>
+        <!--主要部分 结束-->
+    </p>
+    <div class="foot" style="font-weight:normal;    font-family:宋体;">重庆师范大学计算机与信息科学学院16计科王振制作，版权所有。</div>
+    <!--制作脚注部分，为防止字体显示不正常，特设行内样式-->
+    <div class="decoration"><img src="images/jian.gif" width="129" height="592"></div>
+    <!--装饰图片-->
+    <div class="up">
+        <img src="images/top.png" width="50" height="50"></div>
+    <!--向上箭头-->
+    <div id="code1" class="code"><img src="images/code.png" title="扫一扫，用手机看" alt="扫一扫，用手机看" width="50" height="50">
+    </div>
+    <!--小二维码-->
+    <div id="code2"><img src="images/code.png" title="扫一扫，用手机看" alt="扫一扫，用手机看" width="280" height="280"></div>
+    <!--大二维码-->
+</div>
+<script type="text/javascript" src="js/base.js">
+</script>
+<!--引用外部js代码，也就是箭头和二维码部分-->
+<script type="text/javascript">
+    //下面这段JS代码是为了实现鼠标移到图片上，使图片下部说明文字慢慢浮现出来的效果，是从腾讯课堂学到的。虽然不太明白，但还是用了。只是不知道为什么效果并不是很理想，方向并不很灵敏，难道系统误判？
+    //还有一个问题，出去的效果在“风雪会中州”很好，但是在下面的图片处就不行。
+    $(".square").hover(function (e) { //进入
+        var e = e || window.event;
+        var left = $(this).offset().left, //获取当前四条边偏移值
+
+                top = $(this).offset().top,
+                right = left + $(this).width();
+        bottom = top + $(this).height();
+        var x = e.pageX, //获取鼠标坐标
+                y = e.pageY;
+        var sT = Math.abs(top - y), //获取鼠标到边的距离，取绝对值
+                sL = Math.abs(left - x),
+                sB = Math.abs(bottom - y),
+                sR = Math.abs(right - x);
+        var min = Math.min(sT, sL, sB, sR); //找鼠标距离哪一条边最近
+        if (min == sT) { //从上面进入
+            $(this).find("p").eq(0).css({
+                left: 0,
+                bottom: 400,
+                display: "block"
+            }).stop().animate({
+                left: 0,
+                bottom: "-32px"
+            }, 500);
+        } else if (min == sB) { //从下面进入
+            $(this).find("p").eq(0).css({
+                left: 0,
+                bottom: "-80px",
+                display: "block"
+            }).stop().animate({
+                left: 0,
+                bottom: "-32px"
+            }, 500);
+        } else if (min == sR) { //从右边进入
+            $(this).find("p").eq(0).css({
+                left: "510px",
+                bottom: "-32px",
+                display: "block"
+            }).stop().animate({
+                left: 0,
+                bottom: "-32px"
+            }, 500);
+        } else if (min == sL) { //从左边进入
+            $(this).find("p").eq(0).css({
+                left: "-510px",
+                bottom: "-32px",
+                display: "block"
+            }).stop().animate({
+                left: 0,
+                bottom: "-32px"
+            }, 500);
+        }
+        ;
+
+    }, function (e) { //出去
+        var e = e || window.event;
+        var left = $(this).offset().left,
+                top = $(this).offset().top,
+                right = left + $(this).width(),
+                bottom = top + $(this).height();
+        var x = e.pageX,
+                y = e.pageY;
+        var sT = Math.abs(top - y),
+                sL = Math.abs(left - x),
+                sB = Math.abs(bottom - y),
+                sR = Math.abs(right - x);
+        var min = Math.min(sT, sL, sB, sR);
+        if (min == sT) { //从上面出去
+            $(this).find("p").eq(0).stop().animate({
+                left: 0,
+                bottom: "400px"
+            }, 500);
+            //if($(this).find("p").eq(0).offset().bottom>=-10)$(this).find("p").eq(0).hide();
+            //以下鼠标移出后文字消失的效果得益于overflow:hidden;并未真正消失，此处代码暴露了这个缺点，多次尝试（诸如动画里加display:none和visibility:hidden，或者动画外加加 .hide() 等均无效），无力解决，只好退而求其次，使动画播放在整张图片上
+        } else if (min == sB) { //从下面出去
+            $(this).find("p").eq(0).stop().animate({
+                left: 0,
+                bottom: "-75px"
+            }, 500);
+        } else if (min == sR) { //从右边出去
+            $(this).find("p").eq(0).stop().animate({
+                left: "510px",
+                bottom: "-32px"
+            }, 500);
+        } else if (min == sL) { //从左边出去
+            $(this).find("p").eq(0).stop().animate({
+                left: "-510px",
+                bottom: "-32px"
+            }, 500);
+        }
+        ;
+
+    })
+</script>
+<script>
+    (function ($) {
+        $(document).ready(function () {
+            var oOffsetTopMusic = $(".music").offset().top,
+                    oOffsetTopTieba = $(".baidutieba").offset().top,
+                    oWenzi = $(".wz").offset().top,
+                    oOffsetHeightMusic = $(".music").height() / 2,
+                    oOffsetHeightTieba = $(".baidutieba").height() / 2,
+                    oWenzi = $(".wz").height() / 2;
+            setTimeout(function () {
+                $(" .baidutieba").css("visibility", "visible");
+                $(".baidutieba").addClass("leftIn").show();
+            }, 3000);
+            setTimeout(function () {
+                $(".wz").css("visibility", "visible");
+                $(".wz").addClass("flipInXCode").show();
+            }, 4000);
+            setTimeout(function () {
+                $(" .xkx").css("visibility", "visible");
+                $(".xkx").addClass("tada");
+            }, 5000);
+            setTimeout(function () {
+                $(" .music").css("visibility", "visible");
+                $(".music").addClass("tada");
+            }, 6000);
+            setTimeout(function () {
+                $(".oLastAppear").css("visibility", "visible");
+            }, 6000);
+
+        });
+    })(jQuery); //百度贴吧图片的动态效果，因为图片在较上部，所以不放入scroll函数中
+
+    (function ($) {
+        setTimeout(function () {
+            var oOffsetTopsd17 = $(".sd17").offset().top,
+                    oOffsetTopSd83 = $(".sd83").offset().top,
+                    oOffsetTopClxxz = $(".clxxz").offset().top,
+                    oOffsetTopSd06 = $(".sd06").offset().top,
+                    oOffsetHeightsd17 = $(".music").height() / 2,
+                    oOffsetHeightClxxz = $(".clxxz").height() / 2,
+                    oOffsetHeightSd83 = $(".sd83").height() / 2,
+                    oOffsetHeightSd06 = $(".sd06").height() / 2;
+            $(window).scroll(function () {
+
+                if (oOffsetTopsd17 + oOffsetHeightsd17 <= ($(window).scrollTop() + $(window).height())) {
+                    $(".sd17").css("visibility", "visible");
+                    $(" .sd03").css("visibility", "visible");
+                    $(".sd17").addClass("leftIn").show();
+                    $(" .sd03").addClass("rightIn").show();
+                }
+                if (oOffsetTopSd83 + oOffsetHeightSd83 <= ($(window).scrollTop() + $(window).height())) {
+                    $(".sd83").css("visibility", "visible");
+                    $(".sd08").css("visibility", "visible");
+                    $(".sd83").addClass("rightInbounce").show();
+                    $(".sd08").addClass("leftInbounce").show();
+                }
+                if (oOffsetTopClxxz + oOffsetHeightClxxz <= ($(window).scrollTop() + $(window).height())) {
+                    $(".clxxz").css("visibility", "visible");
+                    $(".lxfcq").css("visibility", "visible");
+                    $(".clxxz").addClass("avatar1").show();
+                    $(".lxfcq").addClass("avatar2").show();
+                }
+
+                if (oOffsetTopSd06 + oOffsetHeightSd06 <= ($(window).scrollTop() + $(window).height())) {
+                    $(".sd06").css("visibility", "visible");
+                    $(".tlbb").css("visibility", "visible");
+                    $(".sd06").addClass("avatar3").show();
+                    $(".tlbb").addClass("avatar4").show();
+                }
+            });
+
+        }, 3000); //延迟加载，等标题全部出来之后才慢慢加载
+    })(jQuery);
+
+    var oScrollTop = 0;
+    setTimeout("setInterval('if(oScrollTop<document.body.clientHeight){window.scrollTo(0,oScrollTop);oScrollTop++;}',1);", 5000);
+    //放映PPT效果，自动滚动
+</script>
+</body>
 
 </html>

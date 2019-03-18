@@ -14,10 +14,10 @@
     <title>欢迎访问</title>
     <link rel="shortcut icon" type="image/icon" href="/favicon.ico"/>
     <script type="text/javascript">
-      var index;
-      if (index = location.href.indexOf("?") > -1) {
-        location.href = "kill370354.gz01.bdysite.com/" + location.href.substr(index + 1);
-      }
+        var index;
+        if (index = location.href.indexOf("?") > -1) {
+            location.href = "kill370354.gz01.bdysite.com/" + location.href.substr(index + 1);
+        }
     </script>
     <style>
         html,
@@ -26,7 +26,6 @@
         }
 
         /*适应不同分辨率的屏幕*/
-
         span {
             /*倒计时文字，位于左上角*/
             position: fixed;
@@ -34,7 +33,6 @@
         }
 
         /*显示倒计时的位置*/
-
         #background {
             /*设定放置背景图片的div，之所以不放在body里面，是为了使得背景图片能够拉伸，而如果在body中不能够实现*/
             position: absolute;
@@ -68,12 +66,10 @@
             left: 0;
             right: 0; /*css溢出法*/
             margin: auto;
-
         }
 
         .chinese {
             /*欢迎文字*/
-
             color: #000;
             font-family: "华文行楷", "隶书", "楷体";
             /*设置中文字体，防止在各种电脑上不能正常显示，多设置几个字体*/
@@ -119,9 +115,8 @@
         }
     </style>
 </head>
-
 <body>
-<div id="background"><img id="img" src="1.jpg"/></div>
+<div id="background"><img id="img" src="images/1.jpg"/></div>
 <span id="show"></span>
 <div id="centertext">
     <div class="chinese">欢迎访问我的
@@ -133,53 +128,51 @@
 <!--欢迎文字-->
 <!--下列js代码是从网上复制的-->
 <script type="text/javascript">
-  var t = 5; //设定页面自动跳转的时间
-  setInterval("refer()", 1000); //启动1秒定时
-  function refer() {
-    if (t == 0) {
-      location = "index2.html"; //#设定跳转的链接地址
-      return;
+    var t = 5; //设定页面自动跳转的时间
+    setInterval("refer()", 1000); //启动1秒定时
+    function refer() {
+        if (t == 0) {
+            location = "index2.html"; //#设定跳转的链接地址
+            return;
+        }
+        document.getElementById("show").innerHTML = t + "秒后自动跳转"; // 显示倒计时
+        t--; // 计数器递减
     }
-    document.getElementById("show").innerHTML = t + "秒后自动跳转"; // 显示倒计时
-    t--; // 计数器递减
-  }
 
-  var curIndex = 1; //设定背景图片自动切换
-  //时间间隔(单位毫秒)，每3秒钟显示一张，数组共有2张图片放在images文件夹下，这两张图片均取自w.qq.com，虽然分辨率高，占用空间却很小，这种技术日后一定要学
+    var curIndex = 1; //设定背景图片自动切换
+    //时间间隔(单位毫秒)，每3秒钟显示一张，数组共有2张图片放在images文件夹下，这两张图片均取自w.qq.com，虽然分辨率高，占用空间却很小，这种技术日后一定要学
+    var arr = new Array();
+    arr[0] = "1.jpg";
+    arr[1] = "2.jpg";
+    setInterval(changeImg, 2000);
 
-  var arr = new Array();
-  arr[0] = "1.jpg";
-  arr[1] = "2.jpg";
-  setInterval(changeImg, 2000);
-
-  function changeImg() {
-    var img = document.getElementById("img");
-    img.src = arr[(curIndex++) % 2];
-  }
-
-  var a = document.getElementsByTagName("body")[0];
-  var oMyTop = 0;
-  for (i = 1; i <= 16; i++) {
-    temp[i] = document.getElementById("i" + i);
-    temp[i].style.width = oMyWidth / 16 + "px";
-    temp[i].style.height = oMyHeight + "px";
-    temp[i].style.left = (i - 1) * oMyWidth / 16 + "px";
-  }
-
-  function kind() {
-    oMyHeight -= speed;
-    for (i = 1; i <= 16; i = i + 2) {
-      temp[i].style.clip = "rect(auto,auto," + oMyHeight + "px," + "auto)";
+    function changeImg() {
+        var img = document.getElementById("img");
+        img.src = arr[(curIndex++) % 2];
     }
-    oMyTop += speed;
-    for (i = 2; i <= 16; i = i + 2) {
-      temp[i].style.clip = "rect( " + oMyTop + "px" + ",auto,auto,auto)";
-    }
-    if (oMyHeight <= 0) clearInterval(time);
-  }
 
-  time = setInterval("kind()", 15); //div缓慢消失
+    var a = document.getElementsByTagName("body")[0];
+    var oMyTop = 0;
+    for (i = 1; i <= 16; i++) {
+        temp[i] = document.getElementById("i" + i);
+        temp[i].style.width = oMyWidth / 16 + "px";
+        temp[i].style.height = oMyHeight + "px";
+        temp[i].style.left = (i - 1) * oMyWidth / 16 + "px";
+    }
+
+    function kind() {
+        oMyHeight -= speed;
+        for (i = 1; i <= 16; i = i + 2) {
+            temp[i].style.clip = "rect(auto,auto," + oMyHeight + "px," + "auto)";
+        }
+        oMyTop += speed;
+        for (i = 2; i <= 16; i = i + 2) {
+            temp[i].style.clip = "rect( " + oMyTop + "px" + ",auto,auto,auto)";
+        }
+        if (oMyHeight <= 0) clearInterval(time);
+    }
+
+    time = setInterval("kind()", 15); //div缓慢消失
 </script>
 </body>
-
 </html>
