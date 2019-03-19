@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>f
+  <script charset="utf-8" src="/js/jquery.js" ></script> 
+  <script>
+  $.get("//127.0.0.1/php/GetViwerInfo.php", function(response) {
+    console.log("response.ip, response");
+  }, "jsonp")
+</script>
+</body>
+</html>
