@@ -19,6 +19,7 @@
 		setTimeout(function() {
 			$(".up ").css("visibility", "visible");
 			$(".foot").css("visibility", "visible");
+			$("#gotoleavemessage").css("visibility", "visible");
 			$("#code1").css("visibility", "visible");
 		}, 5000);//向上箭头、二维码、脚注不能起初便出现，要等5秒
 	});
