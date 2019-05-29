@@ -1,51 +1,73 @@
-var oXMLHttpRequest = false;
-
-function fnCreateRequest(url,fnXHRCompleted) {   //初始化对象并发出XMLHttpRequest请求
-    oXMLHttpRequest = false;
-    if (window.XMLHttpRequest) {   //Mozilla等其他浏览器
-        oXMLHttpRequest = new XMLHttpRequest();
-        //修复某些版本的火狐浏览器的bug
-        if (oXMLHttpRequest.overrideMimeType) {
-            oXMLHttpRequest.overrideMimeType("text/xml");
+function ajax(options) {
+    //将对象转为字符串
+    var str = changeDataType(options.data);
+    var xmlHttpRequest;
+    var timer;
+    //兼容ie 1、创建一个异步对象
+    if (window.XMLHttpRequest) {
+        xmlHttpRequest = new XMLHttpRequest();
+    } else {//IE5和6
+        xmlHttpRequest = new ActiveXObject('Microsoft.XMLHTTP');
+    }
+    if (options.type.toLowerCase() === 'post') {
+        xmlHttpRequest.open(options.type, options.url, true);
+        // xmlHttpRequest.setRequestHeader('Content-type', 'application/json;charsetset=UTF-8');
+        xmlHttpRequest.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+        xmlHttpRequest.send(str);
+    } else {
+        xmlHttpRequest.open(options.type, options.url + "?" + str, true);
+        xmlHttpRequest.send(null);
+    }
+    //IE缓存 4、监听状态变化
+    xmlHttpRequest.onreadystatechange = function () {
+        //判断服务器处理
+        if (xmlHttpRequest.readyState === 4) {
+            clearInterval(timer);
+            if (xmlHttpRequest.status >= 200 && xmlHttpRequest.status < 300 || xmlHttpRequest.status === 304) {
+                // console.log('请求成功');
+                //访问服务器
+                // console.log(xmlHttpRequest.responseText);
+                options.success(xmlHttpRequest.responseText);
+            } else {
+                // console.log('请求失败');
+                options.error(xmlHttpRequest.status);
+            }
         }
-    } else if (window.ActiveXObject) {     //IE浏览器
-        try {
-            oXMLHttpRequest = new ActiveXObject("Msxml2.XMLHTTP");
-        } catch (e) {
-            try {
-                oXMLHttpRequest = new ActiveXObject("Microsoft.XMLHTTP");
-            } catch (e) {
-                console.log("无法创建xhr对象！");
+    };
+    //判断是否超时
+    if (options.timeout) {
+        timer = setInterval(function () {
+            alert('网络请求超时');
+            xmlHttpRequest.abort();
+            clearInterval(timer);
+        }, options.timeout);
+    }
+}
+var nextStr = '';
+function changeDataType(obj) {
+    var str = '';
+    if (typeof obj == 'object') {
+        for (var i in obj) {
+            if (typeof obj[i] != 'function' && typeof obj[i] != 'object') {
+                str += i + '=' + obj[i] + '&';
+            } else if (typeof obj[i] == 'object') {
+                nextStr = '';
+                str += changeSonType(i, obj[i])
             }
         }
     }
-    if (!oXMLHttpRequest) {
-        alert("不能创建XMLHTTP实例，请截图联系kill370354@qq.com");
-        return false;
-    }
-
-    if(!fnXHRCompleted) {
-         fnXHRCompleted=function () {
-            console.log("ajax完成！");
-        }
-    }
-
-
-    function fnXHRRsponse() {   	 //处理服务器返回的信息
-        //   var oUserTip = document.getElementById("usertip");
-        if (oXMLHttpRequest.readyState == 4) {
-            if (oXMLHttpRequest.status == 200) {
-                fnXHRCompleted(oXMLHttpRequest.responseText);
+    return str.replace(/&$/g, '');
+}
+function changeSonType(objName, objValue) {
+    if (typeof objValue == 'object') {
+        for (var i in objValue) {
+            if (typeof objValue[i] != 'object') {
+                var value = objName + '[' + i + ']=' + objValue[i];
+                nextStr += encodeURI(value) + '&';
+            } else {
+                changeSonType(objName + '[' + i + ']', objValue[i]);
             }
         }
     }
-    oXMLHttpRequest.onreadystatechange = fnXHRRsponse;
-    sUrl = url.match(/.*?\.php/)[0];
-    sRequest = url.substring(sUrl.length + 1)+"&timestamp=" + new Date().getTime();
-    // console.log(url);   console.log(sRequest);
-    // console.log(sUrl);
-    //指定响应方法函数
-    oXMLHttpRequest.open("POST", sUrl, true);
-    oXMLHttpRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    oXMLHttpRequest.send(sRequest);
-};
+    return nextStr;
+}
