@@ -1,4 +1,5 @@
 function ajax(options) {
+    "use strict";
     //将对象转为字符串
     var str = changeDataType(options.data);
     var xmlHttpRequest;
@@ -43,8 +44,11 @@ function ajax(options) {
         }, options.timeout);
     }
 }
+
 var nextStr = '';
+
 function changeDataType(obj) {
+    "use strict";
     var str = '';
     if (typeof obj == 'object') {
         for (var i in obj) {
@@ -58,7 +62,9 @@ function changeDataType(obj) {
     }
     return str.replace(/&$/g, '');
 }
+
 function changeSonType(objName, objValue) {
+    "use strict";
     if (typeof objValue == 'object') {
         for (var i in objValue) {
             if (typeof objValue[i] != 'object') {
