@@ -278,7 +278,7 @@
         插入一首音乐，但是为什么会永远刷新呢？审查元素控制台报错：
         Resource interpreted as Document but transferred with MIME type audio/mpeg: "http://data.5sing.kgimg.com/G035/M01/1E/01/Yw0DAFXpzs2AfQpRAIBwJ2U9TdY961.mp3".
         真奇怪，所以将音频文件上传到服务器上了-->
-        <embed src="fxhzz.mp3" controls="controls" autostar="true" loop="true" type="audio/mpeg"/>
+        <embed id="music" controls="controls" autostar="true" loop="true" type="audio/mpeg"/>
         <p>《风雪会中州》</p>
         <!--高度问题，JS代码实现时下方有略微阴影感，并且可能一开始字就有，挡着播放控制条，却不知如何解决，惭愧-->
         <!--问题：loop不管用！-->
@@ -465,6 +465,7 @@
 <script>
     $(function () {
         $(".square img").lazyload({effect: "fadeIn"});
+        ("#music")[0].src="fxhzz.mp3";
     });
 
 
